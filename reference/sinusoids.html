@@ -1,0 +1,64 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="theme-color" content="#8a3b2e">
+<link rel="icon" href="../icons/icon-192.png">
+<title>Sinusoids — Reference</title>
+<link rel="stylesheet" href="../assets/style.css">
+
+<div class="kicker">Reference · CLEP Precalculus</div>
+<h1>Graphing Sinusoids</h1>
+<p class="subtitle">Companion to <a href="../lessons/0003-graphing-sinusoids.html">Lesson 0003</a>. Print it; keep it beside you while drilling. Grounded in <a href="https://tutorial.math.lamar.edu/extras/algebratrigreview/triggraphs.aspx">Paul's Online Math Notes — Graphs of Trig Functions</a>.</p>
+
+<h2>The standard form</h2>
+<p class="math">y = A · sin(B(x − C)) + D &nbsp;&nbsp;(or cos)</p>
+<table>
+  <tr><th>Symbol</th><th>Name</th><th>Effect on the graph</th></tr>
+  <tr><td class="math">A</td><td>amplitude factor</td><td>amplitude = <span class="math">|A|</span>; if A &lt; 0 the curve flips vertically</td></tr>
+  <tr><td class="math">B</td><td>angular frequency</td><td>period = <span class="math">2π/B</span>; bigger B ⇒ shorter period</td></tr>
+  <tr><td class="math">C</td><td>phase shift</td><td>shifts <span class="math">right</span> if C &gt; 0, <span class="math">left</span> if C &lt; 0 — <em>after B is factored out</em></td></tr>
+  <tr><td class="math">D</td><td>vertical shift</td><td>midline is <span class="math">y = D</span></td></tr>
+</table>
+
+<h2>Read-off formulas</h2>
+<table>
+  <tr><td>amplitude</td><td class="math">|A| = (max − min) / 2</td></tr>
+  <tr><td>midline</td><td class="math">y = D = (max + min) / 2</td></tr>
+  <tr><td>period</td><td class="math">2π / B</td></tr>
+  <tr><td>B from a known period</td><td class="math">B = 2π / period</td></tr>
+  <tr><td>maximum</td><td class="math">D + |A|</td></tr>
+  <tr><td>minimum</td><td class="math">D − |A|</td></tr>
+</table>
+
+<div class="callout">
+  <span class="callout-label">The two traps</span>
+  <strong>Period is 2π/B, never B.</strong> &nbsp; <strong>Phase shift needs B factored out first:</strong> in <span class="math">sin(2x − π)</span> factor to <span class="math">sin(2(x − π/2))</span>, so the shift is <span class="math">π/2</span>, not π.
+</div>
+
+<h2>Five-key-points method (to sketch one cycle)</h2>
+<ol>
+  <li>Draw the midline <span class="math">y = D</span> and the max/min lines at <span class="math">D ± |A|</span>.</li>
+  <li>Start of cycle: <span class="math">x = C</span>. Mark the four following points a quarter-period apart: <span class="math">C, C + T/4, C + T/2, C + 3T/4, C + T</span> where <span class="math">T = 2π/B</span>.</li>
+  <li>For <span class="math">sin</span>: the pattern across those five points is midline → max → midline → min → midline.</li>
+  <li>For <span class="math">cos</span>: max → midline → min → midline → max.</li>
+  <li>If <span class="math">A &lt; 0</span>, flip the max/min roles.</li>
+</ol>
+
+<h2>sin ⇄ cos</h2>
+<table>
+  <tr><td class="math">cos x = sin(x + π/2)</td><td>cosine is sine shifted left by a quarter period</td></tr>
+  <tr><td class="math">sin x = cos(x − π/2)</td><td>sine is cosine shifted right by a quarter period</td></tr>
+</table>
+
+<h2>Sanity checks</h2>
+<table>
+  <tr><td>The curve never leaves <span class="math">[D − |A|, D + |A|]</span></td><td>an answer with points outside that band is wrong</td></tr>
+  <tr><td>Exactly one full cycle per <span class="math">2π/B</span></td><td>if your sketch shows a different count, B is off</td></tr>
+  <tr><td>Amplitude is a distance</td><td>it is never negative — read <span class="math">|A|</span></td></tr>
+</table>
+
+<div class="nav">
+  <span><a href="../lessons/0003-graphing-sinusoids.html">← Lesson 0003</a></span>
+  <span><a href="right-triangles.html">↳ Reference: Right Triangles</a></span>
+</div>

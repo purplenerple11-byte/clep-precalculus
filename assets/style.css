@@ -560,6 +560,112 @@ th {
   line-height: 1.5;
 }
 
+/* ── Sinusoid grapher ────────────────────────────────────── */
+
+.sino-box {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1.2rem 1.3rem;
+  margin: 1.5rem 0;
+}
+
+.sino-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.7rem;
+}
+
+.sino-svg { width: 100%; height: auto; display: block; }
+
+.sino-grid { stroke: var(--rule); stroke-width: 1; }
+.sino-axis { stroke: var(--muted); stroke-width: 1.5; }
+.sino-axislabel {
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 12px;
+  fill: var(--muted);
+}
+.sino-midline {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+  opacity: 0.7;
+}
+.sino-curve { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+.sino-target {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 2;
+  stroke-dasharray: 3 5;
+  opacity: 0.8;
+}
+
+.sino-fntoggle { display: flex; gap: 0.4rem; margin: 0.7rem 0 0.9rem; }
+.sino-fnbtn {
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  color: var(--muted);
+  cursor: pointer;
+}
+.sino-fnbtn:hover { border-color: var(--accent); }
+.sino-fnbtn-on {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.sino-controls { display: flex; flex-direction: column; gap: 0.55rem; }
+.sino-slider { display: grid; grid-template-columns: 6.5rem 1fr; align-items: center; gap: 0.8rem; }
+.sino-scap {
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.sino-slider input[type="range"] { width: 100%; accent-color: var(--accent); }
+
+.sino-readout {
+  margin-top: 0.9rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.sino-rrow { display: flex; align-items: baseline; gap: 0.7rem; }
+.sino-rkey {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 6.5rem;
+}
+.sino-rval { font-size: 1rem; color: var(--accent); }
+.sino-rrow:first-child .sino-rval { color: var(--text); }
+
+.sino-match {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.sino-match-ok { color: var(--good); }
+
+.sino-caption {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 @media print {
   body { max-width: 100%; font-size: 12pt; margin: 0; padding: 0.5in; }
   .ask-agent, .nav { display: none; }
@@ -567,4 +673,5 @@ th {
   .steps-result, .picker-result { display: block !important; }
   .steps-btn, .tri-toggle { display: none; }
   .tri-arc { opacity: 1 !important; }
+  .sino-controls, .sino-fntoggle { display: none; }
 }

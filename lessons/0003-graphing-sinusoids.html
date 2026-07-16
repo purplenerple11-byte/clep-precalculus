@@ -1,0 +1,181 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="theme-color" content="#8a3b2e">
+<link rel="icon" href="../icons/icon-192.png">
+<title>0003 — Graphing Sinusoids</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/quiz.js" defer></script>
+<script src="../assets/strategy-picker.js" defer></script>
+<script src="../assets/step-reveal.js" defer></script>
+<script src="../assets/sinusoid.js" defer></script>
+
+<div class="kicker">Lesson 0003 · CLEP Precalculus</div>
+<h1>Graphing Sinusoids</h1>
+<p class="subtitle">One equation, four independent knobs. Once you see that each of A, B, C, D moves the curve in exactly one way — and see where the exam hides a trap between them — every graph question becomes a lookup.</p>
+
+<p>This is high-leverage: "Representations of Functions" is the single largest slice of the CLEP Precalculus exam (~30%), and reading or predicting a trig graph's behavior — amplitude, period, phase shift, intervals of increase — is squarely inside it. <a href="https://clep.collegeboard.org/clep-exams/precalculus">(CLEP Precalculus exam page)</a> The released samples lean on <em>reading</em> graphs, not just drawing them.</p>
+
+<p><strong>Primary source for this lesson:</strong> <a href="https://tutorial.math.lamar.edu/extras/algebratrigreview/triggraphs.aspx">Paul's Online Math Notes — Graphs of Trig Functions</a>. Free and college-level; read it for more worked graphs than fit here.</p>
+
+<p>Keep <a href="../reference/sinusoids.html">the sinusoids reference sheet</a> open alongside this.</p>
+
+<hr class="rule">
+
+<h2>The one form to know</h2>
+<p>Every sine or cosine graph question is built on this shape:</p>
+<p class="math">y = A · sin(B(x − C)) + D</p>
+<p>Four numbers, four independent effects. That independence is the whole idea — change one and exactly one feature of the curve moves:</p>
+<table>
+  <tr><th>Knob</th><th>Controls</th><th>Read it off as</th></tr>
+  <tr><td class="math">A</td><td>amplitude — how tall</td><td class="math">|A|</td></tr>
+  <tr><td class="math">B</td><td>how fast it cycles</td><td>period = <span class="math">2π/B</span></td></tr>
+  <tr><td class="math">C</td><td>horizontal (phase) shift</td><td class="math">C</td></tr>
+  <tr><td class="math">D</td><td>vertical shift / midline</td><td>midline <span class="math">y = D</span></td></tr>
+</table>
+<div class="callout">
+  <span class="callout-label">The two couplings that cost points</span>
+  Two of these are <em>not</em> read off directly, and that's where CLEP sets its traps. <strong>The period is 2π/B, not B</strong> — a bigger B means a <em>shorter</em> period. And <strong>the phase shift is C only when B is factored out</strong> — in <span class="math">sin(2x − π)</span> the shift is <em>not</em> π. Both examples below are built around exactly these.
+</div>
+
+<h2>Move one knob at a time</h2>
+<p>Before any worked example, build the intuition directly. Drag each slider and watch which single line in the readout changes. Start by moving <span class="math">B</span> and confirm the <em>period</em> readout moves the opposite way — bigger B, smaller period.</p>
+
+<div class="sinusoid-lab" data-sino="sino1"></div>
+<script type="application/json" id="sino1">
+{
+  "fn": "sin", "A": 1, "B": 1, "C": 0, "D": 0,
+  "caption": "y = A·sin(B(x − C)) + D. The dashed line is the midline (y = D). Amplitude is its half-height, period is one full cycle along x, phase shift slides the whole curve left or right."
+}
+</script>
+
+<h2>Worked example 1 — Read off the four features (the phase-shift trap)</h2>
+<p>Here is the trap in the flesh. Choose the first move before reading on.</p>
+
+<div class="strategy-picker" data-picker="picker1"></div>
+<script type="application/json" id="picker1">
+{
+  "problem": "Find the phase shift of  y = 3 sin(2x − π) + 1.",
+  "prompt": "What's the correct first move?",
+  "options": [
+    { "label": "Factor the 2 out of (2x − π) first",
+      "correct": true,
+      "why": "Yes. The phase shift is only read directly from the form sin(B(x − C)). You must factor: 2x − π = 2(x − π/2), which exposes C = π/2. Never read the bare constant." },
+    { "label": "Read the phase shift straight off as π",
+      "correct": false,
+      "why": "This is the trap the problem is built to catch. The −π is inside sin(2x − π), but the shift isn't π — factoring the 2 out gives 2(x − π/2), so the real shift is π/2. Reading the raw constant doubles your answer." },
+    { "label": "Divide the −π by the amplitude 3",
+      "correct": false,
+      "why": "Amplitude has nothing to do with horizontal position. A scales height; it never moves the curve left or right. Mixing the vertical and horizontal knobs is a sign the four-independent-effects picture hasn't locked in yet." },
+    { "label": "Take 2π/π to get the shift",
+      "correct": false,
+      "why": "That's the period formula (2π/B) misapplied, and even as a period it's wrong here since B = 2, not π. Phase shift and period are different knobs read by different rules." }
+  ]
+}
+</script>
+
+<div class="step-reveal" data-steps="steps1"></div>
+<script type="application/json" id="steps1">
+{
+  "problem": "y = 3 sin(2x − π) + 1  —  find amplitude, period, phase shift, midline.",
+  "steps": [
+    { "hint": "Factor B out of the inside so it reads B(x − C). What does (2x − π) become?",
+      "result": "2x − π = 2(x − π/2),  so  y = 3 sin(2(x − π/2)) + 1",
+      "note": "This one algebra step is the whole difficulty of the problem. Once it's in factored form, all four features are just read off." },
+    { "hint": "Amplitude and midline first — the two easy ones. What are they?",
+      "result": "amplitude = |3| = 3,   midline y = 1" },
+    { "hint": "Period from B = 2. What's 2π/B?",
+      "result": "period = 2π/2 = π",
+      "note": "B = 2 means it cycles twice as fast as a plain sine, so the period is half of 2π." },
+    { "hint": "Phase shift, now that it's factored. Which direction?",
+      "result": "phase shift = π/2 to the right",
+      "note": "C = +π/2, and a minus sign inside, (x − C), means a shift right. Max = D + |A| = 4, min = D − |A| = −2." }
+  ]
+}
+</script>
+
+<h2>Worked example 2 — Read a graph backwards</h2>
+<p>The commoner CLEP form: you're shown a curve (or told its high and low points) and must recover the equation. Amplitude and midline both come from the max and min.</p>
+
+<div class="strategy-picker" data-picker="picker2"></div>
+<script type="application/json" id="picker2">
+{
+  "problem": "A sinusoid has maximum value 5 and minimum value 1. Find its amplitude and midline.",
+  "prompt": "How do you get them from 5 and 1?",
+  "options": [
+    { "label": "Amplitude = (5 − 1)/2 = 2;  midline = (5 + 1)/2 = 3",
+      "correct": true,
+      "why": "Right. Amplitude is half the peak-to-trough distance, and the midline sits exactly between max and min — the average. These two formulas recover A and D from any graph." },
+    { "label": "Amplitude = 5;  midline = 0",
+      "correct": false,
+      "why": "This assumes the curve is centered on the x-axis, which it isn't — the min is 1, not −5. A raised curve has its amplitude measured from the midline, not from zero." },
+    { "label": "Amplitude = 5 − 1 = 4;  midline = 1",
+      "correct": false,
+      "why": "4 is the full peak-to-trough height, but amplitude is *half* of that. And the midline is the average of max and min, not the minimum." },
+    { "label": "Amplitude = (5 + 1)/2 = 3;  midline = (5 − 1)/2 = 2",
+      "correct": false,
+      "why": "The two formulas are swapped. Sum-over-two gives the midline (the center), difference-over-two gives the amplitude (the reach). You've got the right numbers on the wrong quantities." }
+  ]
+}
+</script>
+
+<div class="step-reveal" data-steps="steps2"></div>
+<script type="application/json" id="steps2">
+{
+  "problem": "Max = 5, min = 1, and the graph completes one full cycle every π units, starting a sine cycle at x = 0. Build y = A sin(B(x − C)) + D.",
+  "steps": [
+    { "hint": "Amplitude and midline from max and min.",
+      "result": "A = (5 − 1)/2 = 2,   D = (5 + 1)/2 = 3" },
+    { "hint": "Period is π. Solve 2π/B = π for B.",
+      "result": "B = 2",
+      "note": "2π/B = π  ⟹  B = 2π/π = 2." },
+    { "hint": "It starts a standard sine cycle at x = 0, so no horizontal shift. What is C?",
+      "result": "C = 0" },
+    { "hint": "Assemble the equation.",
+      "result": "y = 2 sin(2x) + 3",
+      "note": "Check against the grapher below: set A = 2, B = 2, C = 0, D = 3 and confirm the peak lands at 5 and the trough at 1." }
+  ]
+}
+</script>
+
+<h2>Now build one yourself</h2>
+<p>The grapher below has a hidden <em>target</em> curve drawn as a faint dashed line. Move the sliders until your curve lands on it and the readout confirms a match. Read the target's amplitude, period, midline, and shift off its shape first, then set the knobs — don't just wiggle.</p>
+
+<div class="sinusoid-lab" data-sino="sino2"></div>
+<script type="application/json" id="sino2">
+{
+  "fn": "sin", "A": 1, "B": 1, "C": 0, "D": 0,
+  "target": { "fn": "sin", "A": 2, "B": 2, "C": 0.7853981633974483, "D": -1 },
+  "caption": "Target: amplitude 2, period π, shifted π/4 right, midline y = −1. That's y = 2 sin(2(x − π/4)) − 1. Set A = 2, B = 2, C = π/4, D = −1."
+}
+</script>
+
+<div class="callout">
+  <span class="callout-label">sin vs cos is just a phase shift</span>
+  cos is sine shifted left by π/2: <span class="math">cos x = sin(x + π/2)</span>. So any cosine graph can be written as a sine graph and vice versa — if a problem's answer choices are all sines but the graph looks like cosine, don't panic, just shift. Toggle the grapher between sin and cos to watch the curve slide by a quarter period.
+</div>
+
+<hr class="rule">
+
+<h2>Retrieval practice</h2>
+<p>Reference sheet closed. Answer from memory.</p>
+
+<div class="retrieval-quiz" data-quiz="quiz1"></div>
+<script type="application/json" id="quiz1">
+[
+  {"q": "For y = A sin(Bx) + D, the period equals which expression?", "a": "2π / B", "choices": ["2π / B", "2π · B", "B / 2π", "2π / A"]},
+  {"q": "A curve has max 9 and min 3. Its amplitude is:", "a": "3", "choices": ["3", "6", "9", "12"]},
+  {"q": "A curve has max 9 and min 3. Its midline is:", "a": "y = 6", "choices": ["y = 6", "y = 3", "y = 9", "y = 0"]},
+  {"q": "In y = sin(3x − π), the phase shift is found only after you first:", "a": "factor out the 3", "choices": ["factor out the 3", "divide by π", "square the 3", "subtract the π"]},
+  {"q": "As B increases, the period of the sinusoid:", "a": "gets shorter", "choices": ["gets shorter", "gets longer", "stays the same", "becomes negative"]},
+  {"q": "Compared to sin x, the graph of cos x is shifted:", "a": "left by π/2", "choices": ["left by π/2", "right by π", "up by 1", "left by 2π"]}
+]
+</script>
+
+<div class="ask-agent">Want a problem that gives you a graph and asks for the equation, or one that asks for intervals where the curve is increasing? Say which and I'll build it. That interval-of-increase style is a favorite on the released CLEP samples and worth a rep.</div>
+
+<div class="nav">
+  <span><a href="0002-right-triangles.html">← 0002: Solving Right Triangles</a></span>
+  <span><a href="../reference/sinusoids.html">↳ Reference: Sinusoids</a></span>
+</div>

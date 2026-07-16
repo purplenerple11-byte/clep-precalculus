@@ -31,8 +31,10 @@ PAGES = {
     "index.html": 0,
     "lessons/0001-identity-application.html": 1,
     "lessons/0002-right-triangles.html": 1,
+    "lessons/0003-graphing-sinusoids.html": 1,
     "reference/trig-identities.html": 1,
     "reference/right-triangles.html": 1,
+    "reference/sinusoids.html": 1,
 }
 
 
