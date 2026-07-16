@@ -1,0 +1,149 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="theme-color" content="#8a3b2e">
+<link rel="icon" href="../icons/icon-192.png">
+<title>0006 — Graph ↔ Equation</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/quiz.js" defer></script>
+<script src="../assets/strategy-picker.js" defer></script>
+<script src="../assets/step-reveal.js" defer></script>
+<script src="../assets/sinusoid.js" defer></script>
+
+<div class="kicker">Lesson 0006 · CLEP Precalculus</div>
+<h1>Graph ↔ Equation</h1>
+<p class="subtitle">Lesson 0003 taught the four knobs one at a time. The exam never asks them one at a time — it hands you a curve and four equations that each get <em>three</em> features right.</p>
+
+<p>Every wrong answer choice on a graph-matching question is built the same way: correct amplitude and period, wrong phase — or correct everything except a missing reflection. If you read features one at a time and stop at the first match, you'll pick a distractor that agrees with you on three counts. The fix is a fixed reading order ending in a <strong>verification step</strong>: plug in one x-value and check.</p>
+
+<p><strong>Primary source for this lesson:</strong> <a href="https://tutorial.math.lamar.edu/extras/algebratrigreview/triggraphs.aspx">Paul's Online Math Notes — Graphs of Trig Functions</a>, plus <a href="../reference/sinusoids.html">your sinusoids reference</a>, which now includes the recipe below.</p>
+
+<hr class="rule">
+
+<h2>The reading order</h2>
+<ol>
+  <li><strong>Midline first:</strong> <span class="math">D = (max + min)/2</span>. Draw it mentally through the curve.</li>
+  <li><strong>Amplitude:</strong> <span class="math">|A| = (max − min)/2</span>.</li>
+  <li><strong>Period → B:</strong> measure one full cycle, then <span class="math">B = 2π/period</span>.</li>
+  <li><strong>Anchor a feature for phase and sign together:</strong> find a <em>maximum</em> (cleanest cos anchor) or an <em>upward midline crossing</em> (cleanest sin anchor). Where that feature sits determines C — and whether you need a reflection.</li>
+  <li><strong>Verify with one plug-in.</strong> Evaluate your equation at one labeled x-value. This step is what kills the three-out-of-four distractors.</li>
+</ol>
+
+<div class="callout">
+  <span class="callout-label">Why phase and reflection must be read together</span>
+  They're interchangeable disguises: <span class="math">−sin x = sin(x − π)</span>, and <span class="math">cos x = sin(x + π/2)</span>. The same curve has many correct equations, so you can't read "is there a minus sign?" off the picture — you can only anchor a feature and check. CLEP exploits this by offering a reflected form and a shifted form of <em>almost</em> the same thing, exactly one of which matches.
+</div>
+
+<h2>Worked example 1 — Build from a description</h2>
+
+<div class="strategy-picker" data-picker="picker1"></div>
+<script type="application/json" id="picker1">
+{
+  "problem": "A sinusoid has maximum 3 at x = π/6, minimum −1, and period π. Which equation matches?",
+  "prompt": "Read midline → amplitude → B → anchor. Which is it?",
+  "options": [
+    { "label": "y = 2 cos(2(x − π/6)) + 1",
+      "correct": true,
+      "why": "D = (3 + (−1))/2 = 1, |A| = 2, B = 2π/π = 2, and a *maximum* at π/6 is a cosine peak shifted right by π/6. Verify: at x = π/6 the inside is 0, cos 0 = 1, y = 2 + 1 = 3 ✓ — the promised max." },
+    { "label": "y = 2 cos(2x − π/6) + 1",
+      "correct": false,
+      "why": "The unfactored-phase trap from lesson 0003. This shifts by π/12, not π/6. Verify kills it: at x = π/6 the inside is π/3 − π/6 = π/6, cos(π/6) ≈ 0.87, y ≈ 2.73 — not the max of 3." },
+    { "label": "y = 2 sin(2(x − π/6)) + 1",
+      "correct": false,
+      "why": "Right D, A, B, wrong anchor type: sine is at its *midline heading up* at the start of its cycle, not at a peak. At x = π/6 this gives y = 1, the midline — but the problem says the max lives there." },
+    { "label": "y = 2 cos(2(x − π/3)) + 1",
+      "correct": false,
+      "why": "Everything right except the anchor position. At x = π/6: inside is 2(π/6 − π/3) = −π/3, cos(−π/3) = 1/2, y = 2. The max of this curve sits at x = π/3 — a sixth of the period late, and one plug-in exposes it." }
+  ]
+}
+</script>
+
+<h2>Worked example 2 — The reflection read</h2>
+<p>The single most common graph-matching trap: the curve <strong>starts at a minimum</strong>.</p>
+
+<div class="strategy-picker" data-picker="picker2"></div>
+<script type="application/json" id="picker2">
+{
+  "problem": "Midline y = 0, amplitude 2, period π, and a MINIMUM at x = 0. Which equation?",
+  "prompt": "Anchor the feature at x = 0.",
+  "options": [
+    { "label": "y = −2 cos(2x)",
+      "correct": true,
+      "why": "Cosine starts at its max; a curve starting at its *min* is a reflected cosine. Verify: at x = 0, y = −2·1 = −2, the minimum ✓. At x = π/4 (quarter period), y = −2cos(π/2) = 0, back at the midline ✓." },
+    { "label": "y = 2 cos(2x)",
+      "correct": false,
+      "why": "This starts at +2 — the maximum. It's the mirror image of the described curve, off by exactly the reflection. Three features match; the plug-in at x = 0 gives +2 ≠ −2 and ends it." },
+    { "label": "y = −2 sin(2x)",
+      "correct": false,
+      "why": "At x = 0 this gives 0 — the curve would start at the midline (heading down), not at a minimum. Sine anchors midline crossings; only a cosine form can anchor a peak or trough at x = 0." },
+    { "label": "y = −2 cos(2(x − π/2))",
+      "correct": false,
+      "why": "Sneaky: shifting a period-π cosine by π/2 is a *half*-period shift, which is the same as another reflection — this simplifies to +2cos(2x), the maximum-at-zero curve again. Verify at x = 0: −2cos(−π) = +2. Wrong." }
+  ]
+}
+</script>
+
+<p>And the verification habit, as its own drill:</p>
+
+<div class="step-reveal" data-steps="steps1"></div>
+<script type="application/json" id="steps1">
+{
+  "problem": "Confirm y = −2 cos(2x) really has: min at 0, midline crossing at π/4, max at π/2.",
+  "steps": [
+    { "hint": "Plug x = 0.",
+      "result": "y = −2 cos 0 = −2  → minimum ✓" },
+    { "hint": "Plug x = π/4 — a quarter period later, expect the midline.",
+      "result": "y = −2 cos(π/2) = 0  → midline ✓",
+      "note": "Rising or falling? A reflected cosine climbs out of its minimum, so it crosses the midline heading UP here. That direction distinguishes it from −2sin(2x + …) forms." },
+    { "hint": "Plug x = π/2 — half a period from the min.",
+      "result": "y = −2 cos(π) = +2  → maximum ✓",
+      "note": "Three plug-ins, three matches: min → midline → max, each a quarter period apart. No distractor survives all three; most die at the first." }
+  ]
+}
+</script>
+
+<h2>Match the target — now the checker accepts any correct form</h2>
+<p>The grapher below compares <strong>curves, not formulas</strong>. If your equation is a legitimate equivalent of the target — reflected sine instead of shifted sine, cosine instead of sine — it counts. First target: this curve can be written with A negative <em>or</em> with a phase shift. Find both; the readout shows your form while the match confirms the curve.</p>
+
+<div class="sinusoid-lab" data-sino="sino1"></div>
+<script type="application/json" id="sino1">
+{
+  "fn": "sin", "A": 1, "B": 1, "C": 0, "D": 0,
+  "target": { "fn": "sin", "A": -2, "B": 1, "C": 0, "D": 1 },
+  "caption": "Target: midline y = 1, amplitude 2, period 2π, heading DOWN through the midline at x = 0. One writing is y = −2 sin x + 1; another is y = 2 sin(x − π) + 1. Match it both ways — the checker accepts either, because they are the same curve."
+}
+</script>
+
+<div class="sinusoid-lab" data-sino="sino2"></div>
+<script type="application/json" id="sino2">
+{
+  "fn": "sin", "A": 1, "B": 1, "C": 0, "D": 0,
+  "caption": "Harder: minimum at x = 0, amplitude 2, period π, midline 0 — worked example 2's curve. Read it, then set the knobs. (Try −2·cos with B = 2, then find the +cos equivalent by shifting half a period.)",
+  "target": { "fn": "cos", "A": -2, "B": 2, "C": 0, "D": 0 }
+}
+</script>
+
+<hr class="rule">
+
+<h2>Retrieval practice</h2>
+<p>Reference sheet closed.</p>
+
+<div class="retrieval-quiz" data-quiz="quiz1"></div>
+<script type="application/json" id="quiz1">
+[
+  {"q": "Reading order that avoids three-out-of-four distractors: midline, amplitude, period, then…", "a": "anchor a feature and verify", "choices": ["anchor a feature and verify", "read the sign of A directly", "assume sine unless told cosine", "count the x-axis crossings"]},
+  {"q": "A sinusoid starts at its minimum at x = 0, midline 0. Its cleanest form is:", "a": "a reflected cosine", "choices": ["a reflected cosine", "a reflected sine", "an ordinary cosine", "an ordinary sine"]},
+  {"q": "−sin x equals which of these?", "a": "sin(x − π)", "choices": ["sin(x − π)", "sin(x − π/2)", "cos(x − π)", "sin(π/2 − x)"]},
+  {"q": "Max 7 at x = 2, min −1, so the midline and amplitude are:", "a": "y = 3 and 4", "choices": ["y = 3 and 4", "y = 4 and 3", "y = 3 and 8", "y = 6 and 4"]},
+  {"q": "Shifting a cosine by half its period is the same as:", "a": "reflecting it", "choices": ["reflecting it", "doubling its period", "raising its midline", "halving its amplitude"]},
+  {"q": "Your candidate equation gives y = 2 at a point the graph shows as −2. You should:", "a": "reject it — one failed plug-in is fatal", "choices": ["reject it — one failed plug-in is fatal", "accept it if other features match", "average the two values", "double-check only the amplitude"]}
+]
+</script>
+
+<div class="ask-agent">Want a timed set of four graph-matching questions in the real CLEP format (one curve, four equations, 90 seconds)? Ask and I'll build it. Also say if the two-writings exercise in the first grapher clicked — that equivalence idea is the whole lesson.</div>
+
+<div class="nav">
+  <span><a href="0005-triangle-from-ratio.html">← 0005: The Triangle Inside the Ratio</a></span>
+  <span><a href="0007-counting-solutions.html">0007: Counting Solutions →</a></span>
+</div>

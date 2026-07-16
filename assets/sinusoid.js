@@ -179,14 +179,24 @@
       });
 
       if (target) {
-        var ok = state.fn === target.fn &&
-          approx(state.A, target.A) && approx(state.B, target.B) &&
-          approx(state.C, target.C) && approx(state.D, target.D);
+        var ok = curvesMatch(state, target);
         matchTag.textContent = ok ? "✓ matched the target" : "not yet — keep adjusting";
         matchTag.className = "sino-match " + (ok ? "sino-match-ok" : "");
       }
     }
     function approx(a, b) { return Math.abs(a - b) < 1e-6; }
+    // Compare CURVES, not parameters. One sinusoid has many equivalent
+    // equations (−2sin x ≡ 2sin(x − π); a cosine is a shifted sine), and any
+    // correct form deserves the match. Tolerance sits far above float noise
+    // from the identity rewrites (~1e-15) and far below one slider step.
+    function curvesMatch(p, q) {
+      if (!q) return false;
+      for (var i = 0; i <= 96; i++) {
+        var x = XMIN + (XMAX - XMIN) * i / 96;
+        if (Math.abs(evalAt(p, x) - evalAt(q, x)) > 1e-6) return false;
+      }
+      return true;
+    }
     function fmtNum(v) {
       var s = Math.abs(v - Math.round(v)) < 1e-9 ? String(Math.round(v)) : v.toFixed(1);
       return s.replace("-", "−");  // U+2212 minus, to match piFmt/eqStr

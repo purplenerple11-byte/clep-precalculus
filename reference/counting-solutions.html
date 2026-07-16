@@ -1,0 +1,53 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="theme-color" content="#8a3b2e">
+<link rel="icon" href="../icons/icon-192.png">
+<title>Counting Solutions — Reference</title>
+<link rel="stylesheet" href="../assets/style.css">
+
+<div class="kicker">Reference · CLEP Precalculus</div>
+<h1>Counting Trig Solutions</h1>
+<p class="subtitle">Companion to <a href="../lessons/0007-counting-solutions.html">Lesson 0007</a>. Print it. Grounded in <a href="https://tutorial.math.lamar.edu/extras/algebratrigreview/SolveTrigEqn.aspx">Paul's Online Math Notes — Solving Trig Equations</a>.</p>
+
+<h2>The substitution habit</h2>
+<ol>
+  <li><strong>Name the inside:</strong> u = whatever sits inside the function (2x, 3x, 2x − π…).</li>
+  <li><strong>Stretch the window:</strong> x ∈ [0, 2π) and u = Bx ⇒ u ∈ <span class="math">[0, 2πB)</span> — B full circles.</li>
+  <li><strong>Solve circle by circle:</strong> first-circle solutions, then +2π each per extra circle.</li>
+  <li><strong>Map back:</strong> divide every u by B (undo the full inner expression if it was Bx − φ).</li>
+</ol>
+
+<h2>Counts on [0, 2π), B a positive integer</h2>
+<table>
+  <tr><th>Equation</th><th>Condition</th><th>Solutions</th><th>Why</th></tr>
+  <tr><td class="math">sin(Bx) = c · cos(Bx) = c</td><td class="math">|c| &lt; 1</td><td class="math">2B</td><td>wave <em>crosses</em> the height twice per circle</td></tr>
+  <tr><td class="math">sin(Bx) = ±1 · cos(Bx) = ±1</td><td>peak value</td><td class="math">B</td><td>wave only <em>touches</em> the peak, once per circle</td></tr>
+  <tr><td class="math">sin(Bx) = c · cos(Bx) = c</td><td class="math">|c| &gt; 1</td><td class="math">0</td><td>outside the wave's reach</td></tr>
+  <tr><td class="math">tan(Bx) = c</td><td>any real c</td><td class="math">2B</td><td>once per π-period; 2π holds 2B of them</td></tr>
+</table>
+<div class="callout">
+  <span class="callout-label">Say it aloud</span>
+  <strong>Crossings twice per circle. Peaks once. Impossible never.</strong> Tangent: once per period, no exceptions.
+</div>
+
+<h2>Spacing checks</h2>
+<table>
+  <tr><td class="math">tan(Bx) = c</td><td>solutions evenly spaced <span class="math">π/B</span> apart — an uneven list means a missing root</td></tr>
+  <tr><td class="math">sin(Bx) = c, cos(Bx) = c</td><td>solutions come in pairs per cycle of length <span class="math">2π/B</span>; each pair repeats shifted by 2π/B</td></tr>
+  <tr><td>Final answers</td><td>every x must land back inside the original interval — check after dividing by B</td></tr>
+</table>
+
+<h2>Worked counts (from the lesson)</h2>
+<table>
+  <tr><td class="math">cos(2x) = 1/2 on [0, 2π)</td><td class="math">4:  π/6, 5π/6, 7π/6, 11π/6</td></tr>
+  <tr><td class="math">sin(3x) = 0.4 on [0, 2π)</td><td class="math">6  (count only — values need a calculator)</td></tr>
+  <tr><td class="math">sin(2x) = 1 on [0, 2π)</td><td class="math">2:  π/4, 5π/4  (peak case)</td></tr>
+  <tr><td class="math">tan(2θ) = 1 on [0, 2π)</td><td class="math">4:  π/8, 5π/8, 9π/8, 13π/8</td></tr>
+</table>
+
+<div class="nav">
+  <span><a href="../lessons/0007-counting-solutions.html">← Lesson 0007</a></span>
+  <span><a href="trig-identities.html">↳ Reference: Trig Identities</a></span>
+</div>

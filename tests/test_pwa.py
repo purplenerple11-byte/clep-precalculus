@@ -34,10 +34,13 @@ PAGES = {
     "lessons/0003-graphing-sinusoids.html": 1,
     "lessons/0004-inverse-trig.html": 1,
     "lessons/0005-triangle-from-ratio.html": 1,
+    "lessons/0006-graph-to-equation.html": 1,
+    "lessons/0007-counting-solutions.html": 1,
     "reference/trig-identities.html": 1,
     "reference/right-triangles.html": 1,
     "reference/sinusoids.html": 1,
     "reference/inverse-trig.html": 1,
+    "reference/counting-solutions.html": 1,
 }
 
 
