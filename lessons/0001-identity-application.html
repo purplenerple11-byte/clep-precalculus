@@ -1,0 +1,172 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="theme-color" content="#8a3b2e">
+<link rel="icon" href="../icons/icon-192.png">
+<title>0001 — Applying Trig Identities</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/quiz.js" defer></script>
+<script src="../assets/strategy-picker.js" defer></script>
+<script src="../assets/step-reveal.js" defer></script>
+
+<div class="kicker">Lesson 0001 · CLEP Precalculus</div>
+<h1>Applying Trig Identities</h1>
+<p class="subtitle">You already know the identities by name. This lesson is about the move from "I recognize that" to "I know which one to reach for."</p>
+
+<p>You've told me the unit circle is solid and you recognize the Pythagorean, sum/difference, and double-angle identities — but application is rusty. That's a very normal gap: identities are easy to <em>verify</em> when someone hands you the answer, and hard to <em>select</em> when you're staring at a blank problem. This lesson closes that gap with three worked examples and a strategy you can reuse on any CLEP identity or equation question.</p>
+
+<p><strong>Primary source for this lesson:</strong> <a href="https://tutorial.math.lamar.edu/extras/algebratrigreview/SolveTrigEqn.aspx">Paul's Online Math Notes — Section 2.4: Solving Trig Equations</a>. Read this if you want more worked examples than fit here; it's the source this lesson's strategy is drawn from.</p>
+
+<p>Keep <a href="../reference/trig-identities.html">the identities reference sheet</a> open in another tab — you should be looking things up, not re-deriving them.</p>
+
+<hr class="rule">
+
+<h2>The core strategy</h2>
+<p>Every CLEP identity-application problem — whether it says "simplify," "verify," or "solve" — responds to the same short checklist:</p>
+<ol>
+  <li><strong>Rewrite everything in terms of sin and cos.</strong> tan, sec, csc, cot are just disguises. Converting them away removes half the confusion immediately.</li>
+  <li><strong>Look for a Pythagorean substitution.</strong> If you see sin²+cos² anywhere (even split across terms), that's your opening.</li>
+  <li><strong>If two different angle expressions appear (like θ and 2θ), collapse them to one.</strong> That's what double-angle identities are <em>for</em> — pick the double-angle form that leaves you with the variable you already have.</li>
+  <li><strong>Factor before you solve.</strong> Trig equations that look quadratic (in sin θ or cos θ) factor exactly like quadratics do.</li>
+  <li><strong>Respect the given interval, and check for extraneous roots</strong> if you squared anything along the way.</li>
+</ol>
+
+<h2>Worked example 1 — Simplify by rewriting</h2>
+<p>Start with the cheapest move in the checklist: get everything into sin and cos, then see what cancels.</p>
+
+<div class="step-reveal" data-steps="steps0"></div>
+<script type="application/json" id="steps0">
+{
+  "problem": "Simplify:   sin²θ · sec θ · csc θ",
+  "steps": [
+    { "hint": "Rewrite sec θ and csc θ in terms of sin and cos. What does the expression become?",
+      "result": "sin²θ · (1/cos θ) · (1/sin θ)" },
+    { "hint": "Now cancel. What's left?",
+      "result": "sin θ / cos θ  =  tan θ",
+      "note": "No Pythagorean substitution was needed at all — rewriting in sin/cos did the whole job. Try the cheap move first before reaching for anything fancier." }
+  ]
+}
+</script>
+
+<h2>Worked example 2 — Solve an equation (factor like a quadratic)</h2>
+<p>Before you read the solution, commit to a first move. Getting this <em>selection</em> right is the whole skill — the algebra after it is routine.</p>
+
+<div class="strategy-picker" data-picker="picker1"></div>
+<script type="application/json" id="picker1">
+{
+  "problem": "Solve on [0, 2π):   2sin²θ − sin θ − 1 = 0",
+  "prompt": "Which move do you make first?",
+  "options": [
+    { "label": "Treat it as a quadratic in sin θ and factor",
+      "correct": true,
+      "why": "Yes. It has the shape 2u² − u − 1 with u = sin θ. Nothing trig-specific is needed yet — it's an algebra problem wearing a trig costume." },
+    { "label": "Substitute sin²θ = 1 − cos²θ to clear the square",
+      "correct": false,
+      "why": "This is legal but makes things worse: you'd end up with both sin θ and cos θ in the same equation, when right now you only have one function to solve for." },
+    { "label": "Apply a double-angle identity to sin²θ",
+      "correct": false,
+      "why": "There's no second angle here — every term is in θ, not 2θ. Double-angle identities collapse *different* angles; there's nothing to collapse." },
+    { "label": "Divide every term through by sin θ",
+      "correct": false,
+      "why": "Dividing by something that can equal zero destroys solutions, and it wouldn't simplify this anyway — the constant term −1 doesn't have a sin θ to cancel." }
+  ]
+}
+</script>
+
+<p>Now work the solution one step at a time. Predict each line <em>before</em> you reveal it — that prediction is what builds retention.</p>
+
+<div class="step-reveal" data-steps="steps1"></div>
+<script type="application/json" id="steps1">
+{
+  "problem": "Solve on [0, 2π):   2sin²θ − sin θ − 1 = 0",
+  "steps": [
+    { "hint": "Substitute u = sin θ. What does the equation become, and how does it factor?",
+      "result": "2u² − u − 1 = 0  →  (2u + 1)(u − 1) = 0",
+      "note": "Standard quadratic factoring. If this step felt slow, that's an algebra-fluency gap worth drilling separately — it'll cost you time on the no-calculator section." },
+    { "hint": "Solve for u, then translate back to sin θ. What two equations do you get?",
+      "result": "sin θ = −1/2   or   sin θ = 1" },
+    { "hint": "sin θ = −1/2 on [0, 2π). Which angles? (Sine is negative in QIII and QIV.)",
+      "result": "θ = 7π/6, 11π/6",
+      "note": "Reference angle π/6, placed in the two quadrants where sine is negative." },
+    { "hint": "sin θ = 1 on [0, 2π). How many solutions?",
+      "result": "θ = π/2",
+      "note": "Only one — sine hits its maximum exactly once per revolution." },
+    { "hint": "Collect everything. What's the full answer set?",
+      "result": "θ = π/2, 7π/6, 11π/6",
+      "note": "The interval restriction is what turns infinitely many solutions into a short finite list. Check it last, after solving for every θ from each u-value." }
+  ]
+}
+</script>
+
+<h2>Worked example 3 — Collapse a double angle</h2>
+<p>Same drill: choose the move first.</p>
+
+<div class="strategy-picker" data-picker="picker2"></div>
+<script type="application/json" id="picker2">
+{
+  "problem": "Solve on [0, 2π):   sin(2θ) = sin θ",
+  "prompt": "Which move do you make first?",
+  "options": [
+    { "label": "Expand sin(2θ) into 2 sin θ cos θ",
+      "correct": true,
+      "why": "Correct. Two different angle expressions (2θ and θ) appear, and you can't solve until every term speaks about the same angle. The double-angle identity is exactly the tool for that." },
+    { "label": "Divide both sides by sin θ to cancel it",
+      "correct": false,
+      "why": "Tempting and fatal. sin θ can equal zero, and dividing by it silently deletes the θ = 0 and θ = π solutions. Factor instead — never divide by a possibly-zero factor." },
+    { "label": "Take the inverse sine of both sides",
+      "correct": false,
+      "why": "arcsin isn't distributive like that — arcsin(sin 2θ) doesn't cleanly give 2θ across the whole interval, because arcsin only returns values in [−π/2, π/2]." },
+    { "label": "Square both sides to remove the sine",
+      "correct": false,
+      "why": "Squaring doesn't remove a sine, and it introduces extraneous roots you'd then have to hunt down and discard. It adds work in both directions." }
+  ]
+}
+</script>
+
+<div class="step-reveal" data-steps="steps2"></div>
+<script type="application/json" id="steps2">
+{
+  "problem": "Solve on [0, 2π):   sin(2θ) = sin θ",
+  "steps": [
+    { "hint": "Expand sin(2θ), then get everything to one side. What do you have?",
+      "result": "2 sin θ cos θ − sin θ = 0" },
+    { "hint": "Both terms share a factor. Factor it out — don't divide it out.",
+      "result": "sin θ (2cos θ − 1) = 0",
+      "note": "Factoring keeps the sin θ = 0 branch alive. Dividing would have thrown it away — this is the single most common way people lose points on this question type." },
+    { "hint": "Set each factor to zero. What are the two equations?",
+      "result": "sin θ = 0   or   cos θ = 1/2" },
+    { "hint": "Solve both on [0, 2π). All four solutions?",
+      "result": "θ = 0, π, π/3, 5π/3",
+      "note": "sin θ = 0 gives 0 and π; cos θ = 1/2 gives π/3 and 5π/3 (cosine is positive in QI and QIV)." }
+  ]
+}
+</script>
+
+<div class="callout">
+  <span class="callout-label">The pattern behind both</span>
+  Every problem above reduced to: get everything into one angle and one function, then factor. If you're ever stuck, ask those two questions in that order before reaching for anything clever.
+</div>
+
+<hr class="rule">
+
+<h2>Retrieval practice</h2>
+<p>Close the reference sheet for these. Answer from memory — the effort of retrieval is what makes it stick.</p>
+
+<div class="retrieval-quiz" data-quiz="quiz1"></div>
+<script type="application/json" id="quiz1">
+[
+  {"q": "Rewrite tan θ using only sin and cos.", "a": "sin θ/cos θ", "choices": ["sin θ/cos θ", "cos θ/sin θ", "1/sin θcos θ", "sin θ·cos θ"]},
+  {"q": "What identity lets you replace 1 − cos²θ?", "a": "sin²θ", "choices": ["sin²θ", "cos²θ", "tan²θ", "sec²θ"]},
+  {"q": "Which factors correctly represent 2u² − u − 1?", "a": "(2u+1)(u-1)", "choices": ["(2u+1)(u-1)", "(2u-1)(u+1)", "(2u+1)(u+1)", "(2u-1)(u-1)"]},
+  {"q": "sin(2θ) equals which of these?", "a": "2 sin θ cos θ", "choices": ["2 sin θ cos θ", "cos²θ − sin²θ", "2 sin θ − cos θ", "sin θ + cos 2θ"]},
+  {"q": "Dividing sin θ(2cos θ − 1)=0 by sin θ instead of factoring loses which solutions?", "a": "the sin θ = 0 solutions", "choices": ["the sin θ = 0 solutions", "the cos θ = 1 solutions", "no solutions at all", "the θ = π/3 solutions"]}
+]
+</script>
+
+<div class="ask-agent">Stuck on any of these, or want another worked example with different numbers? Ask me directly — I'm your teacher here, not just a document. Say what's confusing and I'll build the next example around it.</div>
+
+<div class="nav">
+  <span><a href="../reference/trig-identities.html">↳ Reference: Trig Identities</a></span>
+  <span><a href="0002-right-triangles.html">0002: Solving Right Triangles →</a></span>
+</div>

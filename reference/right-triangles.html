@@ -1,0 +1,98 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="theme-color" content="#8a3b2e">
+<link rel="icon" href="../icons/icon-192.png">
+<title>Right Triangles — Reference</title>
+<link rel="stylesheet" href="../assets/style.css">
+
+<div class="kicker">Reference · CLEP Precalculus</div>
+<h1>Right Triangle Trig</h1>
+<p class="subtitle">Companion to <a href="../lessons/0002-right-triangles.html">Lesson 0002</a>. Print it; keep it beside you while drilling. Special-angle values condensed from <a href="https://tutorial.math.lamar.edu/extras/cheatsheets_tables.aspx">Paul's Online Math Notes — Trig Cheat Sheet</a>.</p>
+
+<h2>The three ratios</h2>
+<table>
+  <tr><th>Ratio</th><th>Definition</th><th>Mnemonic</th></tr>
+  <tr><td class="math">sin θ</td><td class="math">opposite / hypotenuse</td><td>SOH</td></tr>
+  <tr><td class="math">cos θ</td><td class="math">adjacent / hypotenuse</td><td>CAH</td></tr>
+  <tr><td class="math">tan θ</td><td class="math">opposite / adjacent</td><td>TOA</td></tr>
+</table>
+<div class="callout">
+  <span class="callout-label">The relativity rule</span>
+  The <strong>hypotenuse never changes</strong> — it's always opposite the right angle. <strong>Opposite and adjacent swap</strong> when you switch reference angles. Always name sides <em>after</em> choosing your angle, never before.
+</div>
+
+<h2>Which ratio do I use?</h2>
+<p>Two knowns, one unknown. Find the row that mentions both the side you have and the side you want.</p>
+<table>
+  <tr><th>You have</th><th>You want</th><th>Use</th></tr>
+  <tr><td>angle + hypotenuse</td><td>opposite</td><td class="math">sin</td></tr>
+  <tr><td>angle + hypotenuse</td><td>adjacent</td><td class="math">cos</td></tr>
+  <tr><td>angle + adjacent</td><td>opposite</td><td class="math">tan</td></tr>
+  <tr><td>angle + opposite</td><td>adjacent</td><td class="math">tan</td></tr>
+  <tr><td>opposite + hypotenuse</td><td>angle</td><td class="math">sin⁻¹</td></tr>
+  <tr><td>adjacent + hypotenuse</td><td>angle</td><td class="math">cos⁻¹</td></tr>
+  <tr><td>opposite + adjacent</td><td>angle</td><td class="math">tan⁻¹</td></tr>
+  <tr><td>two sides, no angle</td><td>third side</td><td class="math">a² + b² = c²</td></tr>
+</table>
+
+<h2>Direction of travel</h2>
+<table>
+  <tr><td><strong>Angle in → ratio out</strong></td><td class="math">sin, cos, tan</td></tr>
+  <tr><td><strong>Ratio in → angle out</strong></td><td class="math">sin⁻¹, cos⁻¹, tan⁻¹</td></tr>
+</table>
+<div class="callout">
+  <span class="callout-label">Notation trap</span>
+  <span class="math">sin⁻¹θ</span> is the <em>inverse sine</em>. It is <strong>not</strong> <span class="math">1/sin θ</span> — that's <span class="math">csc θ</span>. CLEP baits this deliberately.
+</div>
+
+<h2>Special right triangles</h2>
+<p>Memorize these two. They're the no-calculator (Section 2) workhorses — every exact-value question reduces to one of them.</p>
+<table>
+  <tr><th>Triangle</th><th>Side ratio</th><th>Reads as</th></tr>
+  <tr><td>45°–45°–90°</td><td class="math">1 : 1 : √2</td><td>legs equal; hyp = leg · √2</td></tr>
+  <tr><td>30°–60°–90°</td><td class="math">1 : √3 : 2</td><td>short leg opposite 30°; hyp = 2 · short leg</td></tr>
+</table>
+
+<h2>Exact values at special angles</h2>
+<table>
+  <tr><th>θ</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th></tr>
+  <tr><th>rad</th><td class="math">0</td><td class="math">π/6</td><td class="math">π/4</td><td class="math">π/3</td><td class="math">π/2</td></tr>
+  <tr><th>sin</th><td class="math">0</td><td class="math">1/2</td><td class="math">√2/2</td><td class="math">√3/2</td><td class="math">1</td></tr>
+  <tr><th>cos</th><td class="math">1</td><td class="math">√3/2</td><td class="math">√2/2</td><td class="math">1/2</td><td class="math">0</td></tr>
+  <tr><th>tan</th><td class="math">0</td><td class="math">√3/3</td><td class="math">1</td><td class="math">√3</td><td class="math">undef</td></tr>
+</table>
+<div class="callout">
+  <span class="callout-label">Pattern, not brute memory</span>
+  Sine runs <span class="math">√0/2, √1/2, √2/2, √3/2, √4/2</span> across the row. Cosine is the same list backwards. If you blank on a value, rebuild the row — it's faster than panicking.
+</div>
+
+<h2>Applied angle vocabulary</h2>
+<table>
+  <tr><td><strong>Angle of elevation</strong></td><td>measured <em>up</em> from the horizontal to the line of sight</td></tr>
+  <tr><td><strong>Angle of depression</strong></td><td>measured <em>down</em> from the horizontal to the line of sight</td></tr>
+</table>
+<p>Both are measured from the <strong>horizontal</strong>, never the vertical. In a two-observer figure, the angle of depression from the top equals the angle of elevation from the bottom — alternate interior angles across parallel horizontals.</p>
+
+<h2>Setup checklist</h2>
+<ol>
+  <li>Draw it; mark the right angle (word problems hide it — "vertical," "level ground," "plumb").</li>
+  <li>Label the givens; circle the target.</li>
+  <li>Name sides <em>relative to your chosen angle</em>.</li>
+  <li>Pick the ratio mentioning both known and wanted.</li>
+  <li>Solve, then sanity-check.</li>
+</ol>
+
+<h2>Sanity checks</h2>
+<table>
+  <tr><td>Hypotenuse is always the longest side</td><td>a leg exceeding it means an inverted setup</td></tr>
+  <tr><td class="math">tan 45° = 1</td><td>elevation under 45° → height &lt; ground distance; over 45° → greater</td></tr>
+  <tr><td>sin and cos are always in [−1, 1]</td><td class="math">sin⁻¹(1.4)</td></tr>
+  <tr><td>Check calculator mode every time units change</td><td class="math">sin 35° = 0.574 vs sin(35 rad) = −0.428</td></tr>
+</table>
+
+<div class="nav">
+  <span><a href="../lessons/0002-right-triangles.html">← Lesson 0002</a></span>
+  <span><a href="trig-identities.html">↳ Reference: Trig Identities</a></span>
+</div>

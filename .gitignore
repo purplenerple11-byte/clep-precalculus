@@ -1,0 +1,13 @@
+# Personal study records — deliberately NOT published.
+#
+# GitHub Pages requires a public repo on a free plan, and these files contain
+# the exam date, goals, and a running record of specific weak spots. The site
+# works identically without them; nothing under lessons/ or reference/ links
+# to them (tests/test_pwa.py::TestReferencedFilesExist would fail if it did).
+MISSION.md
+NOTES.md
+RESOURCES.md
+learning-records/
+
+.DS_Store
+__pycache__/

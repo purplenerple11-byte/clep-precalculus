@@ -1,0 +1,233 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="theme-color" content="#8a3b2e">
+<link rel="icon" href="../icons/icon-192.png">
+<title>0002 — Solving Right Triangles</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/quiz.js" defer></script>
+<script src="../assets/strategy-picker.js" defer></script>
+<script src="../assets/step-reveal.js" defer></script>
+<script src="../assets/triangle.js" defer></script>
+
+<div class="kicker">Lesson 0002 · CLEP Precalculus</div>
+<h1>Solving Right Triangles</h1>
+<p class="subtitle">You already know the unit circle. A right triangle is that same picture with the hypotenuse unlocked from 1 — so this lesson extends what you have rather than restarting it.</p>
+
+<p>This is worth your time even though it looks elementary. College Board states that <strong>roughly 30–40% of the exam</strong> requires right-triangle trigonometry or the properties of trig functions — far more than the 15% the "Trigonometry" heading suggests. The official outline names it explicitly: <em>"apply the basic trigonometric ratios and identities (in right triangles and on the unit circle)."</em> <a href="https://clep.collegeboard.org/clep-exams/precalculus">(CLEP Precalculus exam page)</a></p>
+
+<p><strong>Primary source for this lesson:</strong> <a href="https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:trig">Khan Academy — Precalculus: Trigonometry</a>. Free videos plus auto-graded practice, which is what you want for drilling reps between lessons. Work the right-triangle and inverse-trig exercise sets there after finishing this page.</p>
+
+<hr class="rule">
+
+<h2>The bridge from what you already know</h2>
+<p>On the unit circle, a point at angle θ has coordinates (cos θ, sin θ). Drop a vertical line from that point to the x-axis and you've drawn a right triangle: the vertical leg is sin θ, the horizontal leg is cos θ, and the hypotenuse is 1.</p>
+
+<p>So the unit circle is not a different system from right-triangle trig — it's the <strong>special case where the hypotenuse equals 1</strong>. When the hypotenuse isn't 1, the ratios still hold, they just stop being bare coordinates:</p>
+
+<p class="math">sin θ = opposite / hypotenuse &nbsp;&nbsp;·&nbsp;&nbsp; cos θ = adjacent / hypotenuse &nbsp;&nbsp;·&nbsp;&nbsp; tan θ = opposite / adjacent</p>
+
+<p>On the unit circle the denominator was 1, so it vanished and sin θ <em>was</em> the vertical coordinate. That's the whole difference. Everything you've memorized still applies.</p>
+
+<div class="callout">
+  <span class="callout-label">Why this trips up people who know the unit circle</span>
+  On the unit circle there is only ever <em>one</em> reference angle — θ, measured from the positive x-axis. So you never had to ask "opposite to <em>what</em>?" In a right triangle there are two acute angles, and <strong>opposite and adjacent swap depending on which one you're referencing</strong>. The hypotenuse never moves. That relativity is the actual new idea in this lesson.
+</div>
+
+<h2>Watch the swap happen</h2>
+<p>Same triangle, same three sides. Toggle the reference angle and watch which leg earns which name. Note that the hypotenuse stays put while the legs trade roles — and that <span class="math">sin A = cos B</span>, which is the co-function identity you already have on your reference sheet, appearing here as a picture.</p>
+
+<div class="triangle-lab" data-triangle="tri1"></div>
+<script type="application/json" id="tri1">
+{
+  "legA": "8",
+  "legB": "6",
+  "hyp": "10",
+  "caption": "A 6-8-10 triangle (a scaled 3-4-5). Toggle A and B: the hypotenuse is always 10, but the 6 and the 8 swap between opposite and adjacent. Nothing about the triangle changed — only where you're standing."
+}
+</script>
+
+<h2>The setup checklist</h2>
+<p>Almost every CLEP right-triangle question is really a setup question. The arithmetic is trivial once the setup is right, so put your effort here:</p>
+<ol>
+  <li><strong>Draw the triangle and mark the right angle first.</strong> Word problems hide it — "a vertical pole," "the level ground," "a plumb line" all mean 90°.</li>
+  <li><strong>Label what you're given and circle what you want.</strong> Literally write the numbers on the sides.</li>
+  <li><strong>Name the sides relative to the angle you're using</strong> — opposite, adjacent, hypotenuse. Do this <em>after</em> step 2, never before.</li>
+  <li><strong>Pick the ratio that connects what you have to what you want.</strong> This is the only real decision. Two knowns, one unknown, one ratio.</li>
+  <li><strong>Solve, then sanity-check.</strong> The hypotenuse must be the longest side; a leg can never exceed it.</li>
+</ol>
+
+<p>Step 4 is the whole game, and it's mechanical once you see it as a lookup: which of the three ratios mentions <em>both</em> the side you know and the side you want?</p>
+
+<h2>Worked example 1 — Find a side</h2>
+<p>Standard setup: one side, one angle, find another side.</p>
+
+<div class="strategy-picker" data-picker="picker1"></div>
+<script type="application/json" id="picker1">
+{
+  "problem": "Right triangle, right angle at C. Angle A = 35°, hypotenuse = 12. Find the side opposite A.",
+  "prompt": "Which ratio do you set up?",
+  "options": [
+    { "label": "sin 35° = opposite / 12",
+      "correct": true,
+      "why": "Right. You have the hypotenuse, you want the opposite side, and sine is the only ratio that mentions both. Two knowns, one unknown." },
+    { "label": "cos 35° = opposite / 12",
+      "correct": false,
+      "why": "Cosine is adjacent/hypotenuse — it never mentions the opposite side, so it can't get you there. This is the single most common slip: reaching for cosine out of habit." },
+    { "label": "tan 35° = opposite / 12",
+      "correct": false,
+      "why": "Tangent is opposite/adjacent. The 12 is the hypotenuse, not the adjacent side, so this equation is simply false. Tangent never involves the hypotenuse at all." },
+    { "label": "Use the Pythagorean theorem",
+      "correct": false,
+      "why": "Pythagoras relates three *sides* and knows nothing about angles. With only one side given, you don't have enough for it — you need trig to convert the 35° into a side relationship first." }
+  ]
+}
+</script>
+
+<div class="step-reveal" data-steps="steps1"></div>
+<script type="application/json" id="steps1">
+{
+  "problem": "Angle A = 35°, hypotenuse = 12. Find the side opposite A.",
+  "steps": [
+    { "hint": "Write the ratio with the numbers in it. What's the equation?",
+      "result": "sin 35° = opp / 12" },
+    { "hint": "Solve for opp. What does it isolate to?",
+      "result": "opp = 12 · sin 35°",
+      "note": "Multiply, don't divide. If you find yourself dividing by sin here, you've flipped the ratio — a sign to re-check the setup." },
+    { "hint": "Evaluate. (This is a Section 1 question — calculator allowed. Make sure it's in DEGREE mode.)",
+      "result": "opp = 12 · 0.5736 ≈ 6.88",
+      "note": "Sanity check: 6.88 < 12. A leg is shorter than the hypotenuse, so this is believable. If you'd gotten something above 12, the setup was inverted." }
+  ]
+}
+</script>
+
+<div class="callout">
+  <span class="callout-label">Calculator mode — a genuine points-loser</span>
+  Degree mode vs radian mode silently changes every answer. sin 35° = 0.574, but sin(35 radians) = −0.428. The calculator won't warn you. CLEP mixes degrees and radians across questions, so check the mode indicator every single time the units change.
+</div>
+
+<h2>Worked example 2 — Angle of elevation</h2>
+<p>This is the applied form CLEP actually favors. The words change; the triangle doesn't.</p>
+
+<p>Two definitions worth pinning down, because they're the only thing "hidden" in these problems:</p>
+<ul>
+  <li><strong>Angle of elevation</strong> — measured <em>up</em> from the horizontal to your line of sight.</li>
+  <li><strong>Angle of depression</strong> — measured <em>down</em> from the horizontal to your line of sight.</li>
+</ul>
+<p>Both are measured from the <strong>horizontal</strong>, never from the vertical. That single fact resolves most confusion in this problem type.</p>
+
+<div class="strategy-picker" data-picker="picker2"></div>
+<script type="application/json" id="picker2">
+{
+  "problem": "Standing 500 ft from the base of a building, the angle of elevation to the top is 36°. How tall is the building?",
+  "prompt": "Which ratio do you set up?",
+  "options": [
+    { "label": "tan 36° = height / 500",
+      "correct": true,
+      "why": "Correct. The 500 ft is the adjacent leg (along the ground), the height is the opposite leg, and tangent is the ratio that connects the two legs without involving the hypotenuse — which you neither have nor want." },
+    { "label": "sin 36° = height / 500",
+      "correct": false,
+      "why": "Sine needs the hypotenuse, but 500 ft is measured along the ground — that's the adjacent leg, not the line of sight. You'd be treating a leg as the hypotenuse and get a wrong, too-small answer." },
+    { "label": "cos 36° = height / 500",
+      "correct": false,
+      "why": "Cosine is adjacent/hypotenuse, and here you've put the height (the opposite leg) in the numerator. Both roles are wrong — this equation doesn't describe the triangle at all." },
+    { "label": "tan 36° = 500 / height",
+      "correct": false,
+      "why": "Right ratio, inverted. Tangent is opposite over adjacent, and the height is opposite the 36° angle while the 500 ft is adjacent to it. You'd get roughly 688 ft instead of 363 ft." }
+  ]
+}
+</script>
+
+<div class="step-reveal" data-steps="steps2"></div>
+<script type="application/json" id="steps2">
+{
+  "problem": "500 ft from a building, angle of elevation to the top is 36°. Find the height.",
+  "steps": [
+    { "hint": "Draw it. Where is the right angle, and which leg is the 500 ft?",
+      "result": "Right angle at the base of the building. The 500 ft is the horizontal (adjacent) leg; the height is the vertical (opposite) leg.",
+      "note": "The building meets level ground at 90°. That right angle is never stated in the problem — you're expected to supply it." },
+    { "hint": "Both legs, no hypotenuse. Which ratio, with numbers?",
+      "result": "tan 36° = h / 500" },
+    { "hint": "Solve for h and evaluate.",
+      "result": "h = 500 · tan 36° ≈ 500 · 0.7265 ≈ 363 ft",
+      "note": "Sanity check: the angle is under 45°, so tan 36° < 1, so the height must come out *less* than 500. It does. That check catches inverted setups instantly." }
+  ]
+}
+</script>
+
+<div class="callout">
+  <span class="callout-label">The 45° sanity check</span>
+  tan 45° = 1 exactly. So for any angle of elevation under 45°, the height is less than the ground distance; above 45°, it's greater. You can eyeball whether an answer is plausible before computing it — useful in Section 2, where you have no calculator.
+</div>
+
+<h2>Worked example 3 — Find an angle (inverse trig)</h2>
+<p>Reverse the question: given two sides, find the angle. This is where inverse trig earns its keep.</p>
+
+<div class="strategy-picker" data-picker="picker3"></div>
+<script type="application/json" id="picker3">
+{
+  "problem": "A 15 ft ladder leans against a wall, reaching 12 ft up. What angle does it make with the ground?",
+  "prompt": "Which setup finds the angle?",
+  "options": [
+    { "label": "θ = sin⁻¹(12 / 15)",
+      "correct": true,
+      "why": "Right. The ladder is the hypotenuse (15), the wall height is opposite the ground angle (12), so sin θ = 12/15 and the inverse sine undoes it. Answer: about 53.1°." },
+    { "label": "θ = cos⁻¹(12 / 15)",
+      "correct": false,
+      "why": "The 12 ft is the height up the wall, which is *opposite* the ground angle, not adjacent to it. The adjacent leg is the unknown distance from wall to ladder foot — you'd need Pythagoras (it's 9) before cosine could work." },
+    { "label": "θ = tan⁻¹(12 / 15)",
+      "correct": false,
+      "why": "Tangent is opposite/adjacent, but 15 is the hypotenuse — the ladder itself, not a leg. Tangent never touches the hypotenuse, so this pairs two sides that don't belong in the same ratio." },
+    { "label": "θ = sin(12 / 15)",
+      "correct": false,
+      "why": "Direction error. Plain sine takes an angle and returns a ratio; you have the ratio and want the angle, so you need the inverse. This is the most common inverse-trig mistake." }
+  ]
+}
+</script>
+
+<div class="step-reveal" data-steps="steps3"></div>
+<script type="application/json" id="steps3">
+{
+  "problem": "15 ft ladder against a wall, reaching 12 ft up. Find the angle with the ground.",
+  "steps": [
+    { "hint": "Name the sides relative to the ground angle θ. What is 15, and what is 12?",
+      "result": "15 = hypotenuse (the ladder).  12 = opposite (the height up the wall).",
+      "note": "The ladder is always the hypotenuse in these problems — it's the slanted line of sight, and the hypotenuse is always opposite the right angle." },
+    { "hint": "Opposite and hypotenuse. Which ratio, and what does it equal?",
+      "result": "sin θ = 12 / 15 = 0.8" },
+    { "hint": "You have the ratio and want the angle. Apply which operation?",
+      "result": "θ = sin⁻¹(0.8) ≈ 53.1°",
+      "note": "Sanity check: over 45°, so the ladder is steeper than a 45° lean — consistent with reaching 12 ft up while only 9 ft out from the wall." }
+  ]
+}
+</script>
+
+<div class="callout">
+  <span class="callout-label">Which direction are you going?</span>
+  <strong>Angle in, ratio out</strong> → use sin, cos, tan. &nbsp;<strong>Ratio in, angle out</strong> → use sin⁻¹, cos⁻¹, tan⁻¹. Before touching the calculator, ask which of those two sentences describes your problem. The notation sin⁻¹ means "inverse sine," <em>not</em> 1/sin — that's csc. Confusing the two is a classic trap and CLEP does bait it.
+</div>
+
+<hr class="rule">
+
+<h2>Retrieval practice</h2>
+<p>Reference sheet closed. Answer from memory — the effort is what builds retention.</p>
+
+<div class="retrieval-quiz" data-quiz="quiz1"></div>
+<script type="application/json" id="quiz1">
+[
+  {"q": "You know the hypotenuse and want the side opposite your angle. Which ratio?", "a": "sine", "choices": ["sine", "cosine", "tangent", "cotangent"]},
+  {"q": "You know both legs and want the acute angle. Which do you apply?", "a": "inverse tangent", "choices": ["inverse tangent", "inverse cosine", "plain tangent", "the Pythagorean theorem"]},
+  {"q": "An angle of elevation is measured up from which reference line?", "a": "the horizontal", "choices": ["the horizontal", "the vertical", "the hypotenuse", "the line of sight"]},
+  {"q": "In a right triangle, switching your reference angle swaps which pair?", "a": "opposite and adjacent", "choices": ["opposite and adjacent", "opposite and hypotenuse", "adjacent and hypotenuse", "nothing swaps at all"]},
+  {"q": "The notation sin⁻¹(x) means which of these?", "a": "the inverse sine", "choices": ["the inverse sine", "the value of 1/sin x", "the cosecant of x", "sine applied twice"]},
+  {"q": "Angle of elevation is 40°, ground distance 200 ft. The height must be:", "a": "less than 200 ft", "choices": ["less than 200 ft", "more than 200 ft", "exactly 200 ft", "impossible to bound"]}
+]
+</script>
+
+<div class="ask-agent">Any of these land wrong, or want a two-triangle problem (the harder CLEP variant where elevation and depression appear in the same figure)? Ask me — I'll build the next example around whatever tripped you.</div>
+
+<div class="nav">
+  <span><a href="0001-identity-application.html">← 0001: Applying Trig Identities</a></span>
+  <span><a href="../reference/right-triangles.html">↳ Reference: Right Triangles</a></span>
+</div>
