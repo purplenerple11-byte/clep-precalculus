@@ -203,9 +203,16 @@
     }
     function eqStr(p) {
       var a = fmtNum(p.A);
-      var inner = (approx(p.B, 1) ? "" : fmtNum(p.B)) + "(x" +
-        (approx(p.C, 0) ? "" : (p.C > 0 ? " − " : " + ") + piFmt(Math.abs(p.C))) + ")";
-      if (approx(p.C, 0)) inner = (approx(p.B, 1) ? "" : fmtNum(p.B)) + "x";
+      var cpart = approx(p.C, 0) ? "" :
+        (p.C > 0 ? " − " : " + ") + piFmt(Math.abs(p.C));
+      var inner;
+      if (approx(p.C, 0)) {
+        inner = (approx(p.B, 1) ? "" : fmtNum(p.B)) + "x";
+      } else if (approx(p.B, 1)) {
+        inner = "x" + cpart;   // fn's own parens suffice — avoids sin((x − π))
+      } else {
+        inner = fmtNum(p.B) + "(x" + cpart + ")";
+      }
       var d = approx(p.D, 0) ? "" : (p.D > 0 ? " + " : " − ") + fmtNum(Math.abs(p.D));
       return "y = " + (a === "1" ? "" : a === "−1" ? "−" : a) + p.fn + "(" + inner + ")" + d;
     }
