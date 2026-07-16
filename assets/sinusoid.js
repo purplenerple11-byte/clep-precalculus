@@ -93,23 +93,31 @@
     clip.appendChild(el("rect", { x: PADL, y: PADT, width: W, height: H }));
     svg.appendChild(clip);
 
-    // Vertical gridlines + x labels at integer multiples of π.
+    // Vertical gridlines + x labels at integer multiples of π. The line at x = 0
+    // is the y-AXIS, not a gridline: the window opens at −π, so without a marked
+    // origin the eye reads the left edge as x = 0 and every starting value looks
+    // wrong (sine appears to open heading down, cosine at −1 instead of +1).
     for (var k = -1; k <= 3; k++) {
       var xv = k * PI;
       svg.appendChild(el("line", { x1: sx(xv), y1: PADT, x2: sx(xv), y2: PADT + H,
-                                   class: "sino-grid" }));
-      var lbl = el("text", { x: sx(xv), y: PADT + H + 16, class: "sino-axislabel",
+                                   class: k === 0 ? "sino-axis" : "sino-grid" }));
+      var lbl = el("text", { x: sx(xv), y: PADT + H + 16,
+                             class: k === 0 ? "sino-axislabel sino-originlabel" : "sino-axislabel",
                              "text-anchor": "middle" });
       lbl.textContent = k === 0 ? "0" : (k === 1 ? "π" : (k === -1 ? "−π" : k + "π"));
       svg.appendChild(lbl);
     }
-    // Horizontal gridlines + y labels, at fixed even values inside the window.
+    // Horizontal gridlines + y labels. Labels sit beside the y-axis rather than
+    // the frame's left edge — at the frame they were the cue that made x = −π
+    // read as the origin. y = 0 is left unlabelled here; "0" under the y-axis
+    // already names the origin.
     Y_GRID.forEach(function (yv) {
       svg.appendChild(el("line", { x1: PADL, y1: sy(yv), x2: PADL + W, y2: sy(yv),
                                    class: yv === 0 ? "sino-axis" : "sino-grid" }));
-      var yl = el("text", { x: PADL - 6, y: sy(yv) + 4, class: "sino-axislabel",
+      if (yv === 0) return;
+      var yl = el("text", { x: sx(0) - 7, y: sy(yv) + 4, class: "sino-axislabel",
                             "text-anchor": "end" });
-      yl.textContent = String(yv);
+      yl.textContent = String(yv).replace("-", "−");  // U+2212, matching the −π labels
       svg.appendChild(yl);
     });
 

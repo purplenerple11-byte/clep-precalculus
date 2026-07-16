@@ -582,12 +582,14 @@ th {
 .sino-svg { width: 100%; height: auto; display: block; }
 
 .sino-grid { stroke: var(--rule); stroke-width: 1; }
-.sino-axis { stroke: var(--muted); stroke-width: 1.5; }
+.sino-axis { stroke: var(--muted); stroke-width: 1.75; }
 .sino-axislabel {
   font-family: "Palatino Linotype", Palatino, Georgia, serif;
   font-size: 12px;
   fill: var(--muted);
 }
+/* The origin is the reference point for every starting value — name it loudly. */
+.sino-originlabel { fill: var(--text); font-weight: 700; }
 .sino-midline {
   stroke: var(--accent);
   stroke-width: 1.5;
