@@ -24,8 +24,12 @@
   var NS = "http://www.w3.org/2000/svg";
   var PI = Math.PI;
 
-  // Plot window. Fixed so the axes never move under the curve.
-  var XMIN = -PI, XMAX = 3 * PI, YMIN = -4, YMAX = 4;
+  // Plot window. Fixed so the axes never move under the curve. The y-range is
+  // sized to the sliders' worst case: max reach is |A|max + |D|max = 3 + 2 = 5,
+  // plus headroom, so a peak or trough can never silently clip off-window.
+  // Gridlines are labelled at fixed even values (below), independent of this.
+  var XMIN = -PI, XMAX = 3 * PI, YMIN = -5.5, YMAX = 5.5;
+  var Y_GRID = [-4, -2, 0, 2, 4];
   var VBW = 460, VBH = 300;
   var PADL = 34, PADR = 12, PADT = 12, PADB = 26;
   var W = VBW - PADL - PADR, H = VBH - PADT - PADB;
@@ -99,15 +103,15 @@
       lbl.textContent = k === 0 ? "0" : (k === 1 ? "π" : (k === -1 ? "−π" : k + "π"));
       svg.appendChild(lbl);
     }
-    // Horizontal gridlines + y labels.
-    for (var yv = YMIN; yv <= YMAX; yv += 2) {
+    // Horizontal gridlines + y labels, at fixed even values inside the window.
+    Y_GRID.forEach(function (yv) {
       svg.appendChild(el("line", { x1: PADL, y1: sy(yv), x2: PADL + W, y2: sy(yv),
                                    class: yv === 0 ? "sino-axis" : "sino-grid" }));
       var yl = el("text", { x: PADL - 6, y: sy(yv) + 4, class: "sino-axislabel",
                             "text-anchor": "end" });
       yl.textContent = String(yv);
       svg.appendChild(yl);
-    }
+    });
 
     var midline = el("line", { class: "sino-midline", "clip-path": "url(#" + clip.id + ")" });
     svg.appendChild(midline);
@@ -184,7 +188,8 @@
     }
     function approx(a, b) { return Math.abs(a - b) < 1e-6; }
     function fmtNum(v) {
-      return Math.abs(v - Math.round(v)) < 1e-9 ? String(Math.round(v)) : v.toFixed(1);
+      var s = Math.abs(v - Math.round(v)) < 1e-9 ? String(Math.round(v)) : v.toFixed(1);
+      return s.replace("-", "−");  // U+2212 minus, to match piFmt/eqStr
     }
     function eqStr(p) {
       var a = fmtNum(p.A);
@@ -192,7 +197,7 @@
         (approx(p.C, 0) ? "" : (p.C > 0 ? " − " : " + ") + piFmt(Math.abs(p.C))) + ")";
       if (approx(p.C, 0)) inner = (approx(p.B, 1) ? "" : fmtNum(p.B)) + "x";
       var d = approx(p.D, 0) ? "" : (p.D > 0 ? " + " : " − ") + fmtNum(Math.abs(p.D));
-      return "y = " + (a === "1" ? "" : a === "-1" ? "−" : a) + p.fn + "(" + inner + ")" + d;
+      return "y = " + (a === "1" ? "" : a === "−1" ? "−" : a) + p.fn + "(" + inner + ")" + d;
     }
 
     // Sliders. Each maps an integer range onto a stepped real value so the
