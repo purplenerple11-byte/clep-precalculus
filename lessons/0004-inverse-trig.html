@@ -1,0 +1,161 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="theme-color" content="#8a3b2e">
+<link rel="icon" href="../icons/icon-192.png">
+<title>0004 — Inverse Trig &amp; the Principal Range</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/quiz.js" defer></script>
+<script src="../assets/strategy-picker.js" defer></script>
+<script src="../assets/step-reveal.js" defer></script>
+
+<div class="kicker">Lesson 0004 · CLEP Precalculus</div>
+<h1>Inverse Trig &amp; the Principal Range</h1>
+<p class="subtitle">Why sin⁻¹(sin 2π/3) is not 2π/3 — and the one rule that makes every inverse-trig question mechanical.</p>
+
+<p>Here's the trap this whole lesson exists to disarm: <span class="math">sin⁻¹(sin 2π/3)</span> <em>looks</em> like the two operations should cancel and return 2π/3. They don't. The answer is <span class="math">π/3</span>. If that surprises you, good — by the end of this page it won't, and this exact question shape is a CLEP favorite because it punishes anyone running on autopilot.</p>
+
+<p><strong>Primary source for this lesson:</strong> <a href="https://tutorial.math.lamar.edu/extras/algebratrigreview/InverseTrig.aspx">Paul's Online Math Notes — Inverse Trig Functions</a>. More worked evaluations than fit here, at exactly CLEP's level.</p>
+
+<p>Keep <a href="../reference/inverse-trig.html">the inverse trig reference sheet</a> open in another tab.</p>
+
+<hr class="rule">
+
+<h2>The one idea</h2>
+<p>sin⁻¹ does not mean "undo the sine." It means:</p>
+<div class="callout">
+  <span class="callout-label">What arcsin actually promises</span>
+  "Give me <strong>the one angle in [−π/2, π/2]</strong> whose sine is this value." Sine hits every value infinitely many times — a function can only return one answer, so each inverse function commits to one agreed-upon window, called the <strong>principal range</strong>. Every inverse-trig question is really asking: <em>which angle inside the window?</em>
+</div>
+
+<table>
+  <tr><th>Function</th><th>Principal range</th><th>Which quadrants</th><th>Negative inputs land…</th></tr>
+  <tr><td class="math">sin⁻¹ x</td><td class="math">[−π/2, π/2]</td><td>QI and QIV</td><td>as a <em>negative</em> angle (QIV)</td></tr>
+  <tr><td class="math">cos⁻¹ x</td><td class="math">[0, π]</td><td>QI and QII</td><td>in QII, between π/2 and π</td></tr>
+  <tr><td class="math">tan⁻¹ x</td><td class="math">(−π/2, π/2)</td><td>QI and QIV</td><td>as a <em>negative</em> angle (QIV)</td></tr>
+</table>
+
+<p>Notice the pattern: all three include QI, so positive inputs are easy — they're the special-angle values you already know. The whole game is negative inputs. <strong>arcsin and arctan answer with a negative angle; arccos answers in the second quadrant.</strong> That asymmetry is where the traps live.</p>
+
+<h2>Evaluating: positive is free, negative is the skill</h2>
+<p>Commit to an answer before revealing.</p>
+
+<div class="strategy-picker" data-picker="picker1"></div>
+<script type="application/json" id="picker1">
+{
+  "problem": "Evaluate  sin⁻¹(−1/2).",
+  "prompt": "Which angle does arcsin return?",
+  "options": [
+    { "label": "−π/6",
+      "correct": true,
+      "why": "Right. The reference angle with sine 1/2 is π/6, the input is negative, and arcsin answers negatives as negative angles in [−π/2, 0). So −π/6." },
+    { "label": "7π/6",
+      "correct": false,
+      "why": "sin(7π/6) is indeed −1/2, so this angle *solves the equation* — but it's outside [−π/2, π/2], so arcsin is not allowed to return it. Solving sin θ = −1/2 and evaluating sin⁻¹(−1/2) are different questions." },
+    { "label": "11π/6",
+      "correct": false,
+      "why": "Same story: sin(11π/6) = −1/2, but 11π/6 is outside the principal range. It's the same point on the circle as −π/6 — arcsin names that point by its in-range name, the negative angle." },
+    { "label": "π/6",
+      "correct": false,
+      "why": "This drops the sign. sin(π/6) = +1/2, not −1/2. Arcsin of a negative must return a negative angle — a positive answer to a negative input is always wrong for arcsin." }
+  ]
+}
+</script>
+
+<p>Now the arccos version — same input sign, <em>different</em> destination, because arccos's window is different.</p>
+
+<div class="step-reveal" data-steps="steps1"></div>
+<script type="application/json" id="steps1">
+{
+  "problem": "Evaluate  cos⁻¹(−√2/2).",
+  "steps": [
+    { "hint": "Ignore the sign for a moment. Which reference angle has cosine √2/2?",
+      "result": "π/4",
+      "note": "Straight off the special-angle table — this part is free." },
+    { "hint": "The input is negative. Which quadrant does arccos use for negatives, and why not a negative angle?",
+      "result": "QII — because arccos's range is [0, π], which contains no negative angles at all.",
+      "note": "This is the asymmetry: arcsin would answer −π/4 here. Arccos physically can't." },
+    { "hint": "Place the π/4 reference angle in QII. What's the answer?",
+      "result": "cos⁻¹(−√2/2) = π − π/4 = 3π/4",
+      "note": "Sanity check: cos(3π/4) = −√2/2 ✓, and 3π/4 is inside [0, π] ✓. Both boxes must tick." }
+  ]
+}
+</script>
+
+<h2>The trap itself: sin⁻¹(sin θ)</h2>
+<p>Now the composition. The inner function runs first and <em>destroys information</em> — it turns the angle into a bare number. The outer inverse then rebuilds an angle from that number, but it can only answer inside its window.</p>
+
+<div class="strategy-picker" data-picker="picker2"></div>
+<script type="application/json" id="picker2">
+{
+  "problem": "Evaluate  sin⁻¹(sin 2π/3).",
+  "prompt": "What comes out?",
+  "options": [
+    { "label": "π/3",
+      "correct": true,
+      "why": "Right. Inner first: sin(2π/3) = √3/2. Then: which angle in [−π/2, π/2] has sine √3/2? That's π/3. The original 2π/3 was outside the window, so it cannot come back out." },
+    { "label": "2π/3",
+      "correct": false,
+      "why": "The bait. 'Inverse undoes the function' only holds when the angle is already inside [−π/2, π/2] — and 2π/3 ≈ 2.09 is past π/2 ≈ 1.57. The sine step collapsed 2π/3 to the number √3/2, and arcsin rebuilds the in-range angle with that sine: π/3." },
+    { "label": "√3/2",
+      "correct": false,
+      "why": "That's the intermediate value — the output of the *inner* sine, a ratio, not an angle. Stopping here means the outer sin⁻¹ never ran. Watch the types: arcsin takes a number and returns an angle." },
+    { "label": "−π/3",
+      "correct": false,
+      "why": "Wrong sign. sin(2π/3) = +√3/2, positive — 2π/3 is in QII where sine is still positive. A positive input to arcsin returns a positive angle. −π/3 would be the answer for sin⁻¹(sin(−π/3)) or sin⁻¹(−√3/2)." }
+  ]
+}
+</script>
+
+<div class="callout">
+  <span class="callout-label">The two-line rule for f⁻¹(f(θ))</span>
+  <strong>If θ is already in the principal range → it survives unchanged.</strong><br>
+  <strong>If not → compute the inner value, then find the in-range angle sharing it.</strong><br>
+  The other direction is friendlier: <span class="math">sin(sin⁻¹ x) = x</span> for every x in [−1, 1], no exceptions — arcsin hands sine a legal angle, and sine doesn't care which window it came from.
+</div>
+
+<p>One more, with tangent, harder because the fold isn't symmetric around π/2:</p>
+
+<div class="step-reveal" data-steps="steps2"></div>
+<script type="application/json" id="steps2">
+{
+  "problem": "Evaluate  tan⁻¹(tan 5π/6).",
+  "steps": [
+    { "hint": "Is 5π/6 inside arctan's window (−π/2, π/2)? If not, run the inner function. What is tan(5π/6)?",
+      "result": "5π/6 is outside the window.  tan(5π/6) = −√3/3",
+      "note": "QII: tangent is negative there. Reference angle π/6, so the value is −tan(π/6) = −√3/3." },
+    { "hint": "Now the outer function: which angle in (−π/2, π/2) has tangent −√3/3?",
+      "result": "tan⁻¹(−√3/3) = −π/6",
+      "note": "Arctan answers negatives as negative angles, same as arcsin." },
+    { "hint": "So the composition collapses 5π/6 to what — and notice how far it moved?",
+      "result": "tan⁻¹(tan 5π/6) = −π/6",
+      "note": "The answer differs from the input by exactly π — that's tangent's period. For tan⁻¹(tan θ), you always land at θ shifted by whole multiples of π into the window." }
+  ]
+}
+</script>
+
+<hr class="rule">
+
+<h2>Retrieval practice</h2>
+<p>Reference sheet closed. The quiz mixes evaluation and composition — deciding <em>which situation you're in</em> is part of the skill.</p>
+
+<div class="retrieval-quiz" data-quiz="quiz1"></div>
+<script type="application/json" id="quiz1">
+[
+  {"q": "The principal range of sin⁻¹ is:", "a": "[−π/2, π/2]", "choices": ["[−π/2, π/2]", "[0, π]", "[0, 2π)", "(−π, π)"]},
+  {"q": "The principal range of cos⁻¹ is:", "a": "[0, π]", "choices": ["[0, π]", "[−π/2, π/2]", "[0, 2π)", "[−π, 0]"]},
+  {"q": "cos⁻¹(−1/2) equals:", "a": "2π/3", "choices": ["2π/3", "−π/3", "4π/3", "5π/6"]},
+  {"q": "tan⁻¹(−1) equals:", "a": "−π/4", "choices": ["−π/4", "3π/4", "7π/4", "−3π/4"]},
+  {"q": "sin⁻¹(sin π/4) equals:", "a": "π/4", "choices": ["π/4", "3π/4", "√2/2", "−π/4"]},
+  {"q": "cos⁻¹(cos 5π/4) equals:", "a": "3π/4", "choices": ["3π/4", "5π/4", "−3π/4", "π/4"]},
+  {"q": "sin(sin⁻¹ 0.3) equals:", "a": "0.3 exactly", "choices": ["0.3 exactly", "0.3 only sometimes", "an angle near 0.3", "undefined here"]}
+]
+</script>
+
+<div class="ask-agent">The QII/QIV asymmetry between arccos and arcsin is the part most worth drilling until it's boring. Want ten rapid-fire negative-input evaluations, or more f⁻¹(f(θ)) folds? Say which and I'll generate them.</div>
+
+<div class="nav">
+  <span><a href="0003-graphing-sinusoids.html">← 0003: Graphing Sinusoids</a></span>
+  <span><a href="0005-triangle-from-ratio.html">0005: The Triangle Inside the Ratio →</a></span>
+</div>

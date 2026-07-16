@@ -1,0 +1,79 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta name="theme-color" content="#8a3b2e">
+<link rel="icon" href="../icons/icon-192.png">
+<title>Inverse Trig — Reference</title>
+<link rel="stylesheet" href="../assets/style.css">
+
+<div class="kicker">Reference · CLEP Precalculus</div>
+<h1>Inverse Trig &amp; Triangle-from-Ratio</h1>
+<p class="subtitle">Companion to Lessons <a href="../lessons/0004-inverse-trig.html">0004</a> and <a href="../lessons/0005-triangle-from-ratio.html">0005</a>. Print it. Grounded in <a href="https://tutorial.math.lamar.edu/extras/algebratrigreview/InverseTrig.aspx">Paul's Online Math Notes — Inverse Trig Functions</a>.</p>
+
+<h2>Principal ranges</h2>
+<table>
+  <tr><th>Function</th><th>Domain</th><th>Range</th><th>Quadrants</th><th>Negative input →</th></tr>
+  <tr><td class="math">sin⁻¹ x</td><td class="math">[−1, 1]</td><td class="math">[−π/2, π/2]</td><td>QI, QIV</td><td>negative angle</td></tr>
+  <tr><td class="math">cos⁻¹ x</td><td class="math">[−1, 1]</td><td class="math">[0, π]</td><td>QI, QII</td><td>QII angle</td></tr>
+  <tr><td class="math">tan⁻¹ x</td><td>all reals</td><td class="math">(−π/2, π/2)</td><td>QI, QIV</td><td>negative angle</td></tr>
+</table>
+<div class="callout">
+  <span class="callout-label">The asymmetry</span>
+  arcsin and arctan answer negatives with <strong>negative angles</strong>. arccos answers negatives in <strong>QII</strong> — its range [0, π] contains no negative angles. This single fact decides most evaluation questions.
+</div>
+
+<h2>Evaluation recipe</h2>
+<ol>
+  <li>Find the <strong>reference angle</strong> from the magnitude (special-angle table).</li>
+  <li>Input positive → done, it's the QI angle.</li>
+  <li>Input negative → arcsin/arctan: negate the reference angle. arccos: <span class="math">π − reference</span>.</li>
+</ol>
+
+<h2>Compositions</h2>
+<table>
+  <tr><td class="math">sin(sin⁻¹ x) = x</td><td>always, for x in [−1, 1] — no trap in this direction</td></tr>
+  <tr><td class="math">sin⁻¹(sin θ) = θ</td><td><strong>only if</strong> θ ∈ [−π/2, π/2]</td></tr>
+  <tr><td class="math">cos⁻¹(cos θ) = θ</td><td><strong>only if</strong> θ ∈ [0, π]</td></tr>
+  <tr><td class="math">tan⁻¹(tan θ) = θ</td><td><strong>only if</strong> θ ∈ (−π/2, π/2); otherwise shift by multiples of π</td></tr>
+</table>
+<p>Out of range? Compute the inner value, then find the in-range angle sharing it. Worked folds: <span class="math">sin⁻¹(sin 2π/3) = π/3</span>, <span class="math">cos⁻¹(cos 5π/4) = 3π/4</span>, <span class="math">tan⁻¹(tan 5π/6) = −π/6</span>.</p>
+
+<h2>Triangle-from-ratio recipe</h2>
+<ol>
+  <li>The given ratio names two sides — <strong>write them on a right triangle</strong> (sin: opp/hyp · cos: adj/hyp · tan: opp/adj).</li>
+  <li><strong>Pythagoras</strong> the third side.</li>
+  <li>Read off the requested function — the triangle gives the <strong>magnitude</strong>.</li>
+  <li>If θ is placed outside QI, <strong>set the sign from the quadrant</strong> (ASTC below).</li>
+</ol>
+
+<h2>Mixed compositions (cos of arcsin, etc.)</h2>
+<table>
+  <tr><td class="math">cos(sin⁻¹ x) = √(1 − x²)</td><td>blueprint: opp x, hyp 1</td></tr>
+  <tr><td class="math">sin(cos⁻¹ x) = √(1 − x²)</td><td>blueprint: adj x, hyp 1</td></tr>
+  <tr><td class="math">tan(sin⁻¹ x) = x/√(1 − x²)</td><td>blueprint: opp x, hyp 1</td></tr>
+  <tr><td class="math">sec(tan⁻¹ x) = √(1 + x²)</td><td>blueprint: opp x, adj 1</td></tr>
+</table>
+<p>Don't memorize these — re-derive in ten seconds: name the inner angle θ, draw its blueprint with hypotenuse (or adjacent) 1, Pythagoras, read off.</p>
+
+<h2>Sign by quadrant (ASTC)</h2>
+<table>
+  <tr><th>Quadrant</th><th>Positive there</th><th>Mnemonic</th></tr>
+  <tr><td>QI</td><td>all six</td><td><strong>A</strong>ll</td></tr>
+  <tr><td>QII</td><td>sin, csc</td><td><strong>S</strong>tudents</td></tr>
+  <tr><td>QIII</td><td>tan, cot</td><td><strong>T</strong>ake</td></tr>
+  <tr><td>QIV</td><td>cos, sec</td><td><strong>C</strong>alculus</td></tr>
+</table>
+
+<h2>Sanity checks</h2>
+<table>
+  <tr><td class="math">sin⁻¹, cos⁻¹ of anything outside [−1, 1]</td><td>undefined — reject the question's premise</td></tr>
+  <tr><td>arcsin output positive for negative input</td><td>impossible — sign must match</td></tr>
+  <tr><td>arccos output negative</td><td>impossible — range starts at 0</td></tr>
+  <tr><td>any sin or cos value with magnitude &gt; 1</td><td>impossible — instant rejection</td></tr>
+</table>
+
+<div class="nav">
+  <span><a href="../lessons/0004-inverse-trig.html">← Lesson 0004</a></span>
+  <span><a href="right-triangles.html">↳ Reference: Right Triangles</a></span>
+</div>
