@@ -6,34 +6,38 @@
 <link rel="icon" href="../icons/icon-192.png">
 <title>0007 — Counting Solutions on an Interval</title>
 <link rel="stylesheet" href="../assets/style.css">
-<script src="../assets/quiz.js" defer></script>
-<script src="../assets/strategy-picker.js" defer></script>
 <script src="../assets/step-reveal.js" defer></script>
+<script src="../assets/drill.js" defer></script>
 
 <div class="kicker">Lesson 0007 · CLEP Precalculus</div>
 <h1>Counting Solutions on an Interval</h1>
-<p class="subtitle">cos x = 1/2 has two solutions on [0, 2π). cos 2x = 1/2 has four. The inner multiplier quietly doubles the harvest — and "how many solutions?" is a question CLEP can ask without you solving anything.</p>
+<p class="subtitle">cos x = 1/2 has two solutions on [0, 2π). cos 2x = 1/2 has four. Two worked examples, then thirty-four drills.</p>
 
-<p>You solved equations like these in lesson <a href="0001-identity-application.html">0001</a> — but always with a plain θ inside. The moment the inside becomes 2x or 3x, most people still solve one cycle's worth and stop, losing half the roots. The fix is a substitution habit that makes the extra cycles impossible to miss.</p>
+<p>You solved equations like these in lesson <a href="0001-identity-application.html">0001</a>, always with a plain θ inside. The moment the inside becomes 2x or 3x, one cycle's worth of solving loses you half the roots. The fix is a substitution:</p>
 
-<p><strong>Primary source for this lesson:</strong> <a href="https://tutorial.math.lamar.edu/extras/algebratrigreview/SolveTrigEqn.aspx">Paul's Online Math Notes — Solving Trig Equations</a> (its later examples are exactly this pattern). Companion sheet: <a href="../reference/counting-solutions.html">the counting reference</a>.</p>
+<ol>
+  <li><strong>Name the inside:</strong> <span class="math">u = 2x</span> — or 3x, or 2x − π/3, whatever sits there.</li>
+  <li><strong>Stretch the window:</strong> if x runs over [0, 2π) then u = 2x runs over <span class="math">[0, 4π)</span> — <em>two</em> circles. This is the step people skip.</li>
+  <li><strong>Solve in u, circle by circle:</strong> find the solutions in the first circle, then add 2π for each further circle.</li>
+  <li><strong>Map back:</strong> undo the whole inside — <span class="math">x = (u + φ)/B</span>.</li>
+</ol>
+
+<p>Which means you can answer "how many solutions?" without solving anything. On [0, 2π), with B a whole number:</p>
+
+<table>
+  <tr><th>Equation</th><th>Condition</th><th>Solutions</th></tr>
+  <tr><td class="math">sin(Bx) = c, cos(Bx) = c</td><td class="math">|c| &lt; 1</td><td class="math">2B</td></tr>
+  <tr><td class="math">sin(Bx) = ±1, cos(Bx) = ±1</td><td>peak value</td><td class="math">B</td></tr>
+  <tr><td class="math">sin(Bx) = c, cos(Bx) = c</td><td class="math">|c| &gt; 1</td><td class="math">0</td></tr>
+  <tr><td class="math">tan(Bx) = c</td><td>any real c</td><td class="math">2B</td></tr>
+</table>
+
+<p><strong>Read before drilling:</strong> <a href="https://tutorial.math.lamar.edu/extras/algebratrigreview/SolveTrigEqn.aspx">Paul's Online Math Notes — Solving Trig Equations</a>. Why the peak case halves the count, what happens when B is fractional, and the five standard wrong turns are in <a href="../reference/counting-solutions.html">the counting reference</a> — keep it open beside you.</p>
 
 <hr class="rule">
 
-<h2>The substitution habit</h2>
-<ol>
-  <li><strong>Name the inside:</strong> let <span class="math">u = 2x</span> (or 3x, or 2x − π — whatever's inside).</li>
-  <li><strong>Stretch the window:</strong> if x runs over [0, 2π), then u = 2x runs over <span class="math">[0, 4π)</span> — <em>two</em> full circles, not one. This is the step people skip.</li>
-  <li><strong>Solve in u, one circle at a time:</strong> find the solutions in [0, 2π), then add 2π to each for the second circle, and so on.</li>
-  <li><strong>Divide back:</strong> x = u/2 for every u you found.</li>
-</ol>
-
-<div class="callout">
-  <span class="callout-label">The count, before any solving</span>
-  On [0, 2π), for a value c strictly between −1 and 1: <span class="math">sin(Bx) = c</span> and <span class="math">cos(Bx) = c</span> each have <strong>2B solutions</strong> — two per circle, B circles. <span class="math">tan(Bx) = c</span> has <strong>2B solutions for any real c</strong> — tangent hits every value exactly once per period, and 2π holds 2B of its π/B-periods. The exceptions: sin or cos equal to <strong>±1 exactly</strong> gives only B (the peak is hit once per circle), and <strong>|c| &gt; 1</strong> gives zero.
-</div>
-
-<h2>Worked example 1 — The doubled harvest</h2>
+<h2>Example 1 — the doubled harvest</h2>
+<p>Predict each line before you reveal it.</p>
 
 <div class="step-reveal" data-steps="steps1"></div>
 <script type="application/json" id="steps1">
@@ -41,108 +45,181 @@
   "problem": "Solve cos(2x) = 1/2 on [0, 2π). How many solutions, and what are they?",
   "steps": [
     { "hint": "Name the inside and stretch the window. What does u cover?",
-      "result": "u = 2x, and as x runs over [0, 2π), u runs over [0, 4π) — two full circles.",
-      "note": "Before solving anything you already know the count: cos u = 1/2 gives 2 per circle × 2 circles = 4 solutions." },
-    { "hint": "First circle: cos u = 1/2 on [0, 2π). Which u?",
+      "result": "u = 2x, and as x runs over [0, 2π), u runs over [0, 4π) — two full circles",
+      "note": "You already know the count: 2 per circle × 2 circles = 4." },
+    { "hint": "First circle: cos u = 1/2 on [0, 2π).",
       "result": "u = π/3, 5π/3",
       "note": "Cosine positive → QI and QIV, reference angle π/3." },
     { "hint": "Second circle: add 2π to each.",
       "result": "u = 7π/3, 11π/3" },
     { "hint": "Divide every u by 2.",
-      "result": "x = π/6, 5π/6, 7π/6, 11π/6  — four solutions",
-      "note": "Sanity check: all four are inside [0, 2π) ✓, and plain cos x = 1/2 would have given just two. The 2 inside bought two more." }
+      "result": "x = π/6, 5π/6, 7π/6, 11π/6 — four solutions",
+      "note": "All four land inside [0, 2π) ✓. Plain cos x = 1/2 would have given two; the 2 inside bought two more." }
   ]
 }
 </script>
 
-<h2>Worked example 2 — Count without solving</h2>
-
-<div class="strategy-picker" data-picker="picker1"></div>
-<script type="application/json" id="picker1">
-{
-  "problem": "How many solutions does sin(3x) = 0.4 have on [0, 2π)?",
-  "prompt": "No solving needed — count.",
-  "options": [
-    { "label": "6",
-      "correct": true,
-      "why": "u = 3x sweeps [0, 6π): three full circles. 0.4 is strictly between −1 and 1, so sine crosses it twice per circle: 3 × 2 = 6. (You could never find these six exactly without a calculator — which is precisely why CLEP asks for the count, not the values.)" },
-    { "label": "2",
-      "correct": false,
-      "why": "That's the count for plain sin x = 0.4 — one circle's worth. The 3 inside means the sine wave completes three cycles across [0, 2π), and each cycle crosses the height 0.4 twice." },
-    { "label": "3",
-      "correct": false,
-      "why": "One per cycle undercounts: a sine cycle crosses a horizontal line at height 0.4 twice — once rising, once falling. One-per-cycle is the ±1 peak case only." },
-    { "label": "12",
-      "correct": false,
-      "why": "This doubles the correct answer — likely from stretching the window to [0, 6π) AND multiplying by 2B again. Stretch once: three circles, two crossings each, six. The B is already spent in the window stretch." }
-  ]
-}
-</script>
-
-<h2>The peak exception</h2>
-
-<div class="strategy-picker" data-picker="picker2"></div>
-<script type="application/json" id="picker2">
-{
-  "problem": "How many solutions does sin(2x) = 1 have on [0, 2π)?",
-  "prompt": "Careful — the rule just changed.",
-  "options": [
-    { "label": "2",
-      "correct": true,
-      "why": "sin u = 1 happens ONCE per circle (only at u = π/2), not twice — the line y = 1 touches the peak instead of crossing the wave. Two circles in [0, 4π): u = π/2, 5π/2 → x = π/4, 5π/4." },
-    { "label": "4",
-      "correct": false,
-      "why": "That's 2B on autopilot. The 2-per-circle count is for heights the wave crosses; ±1 is a height the wave only *touches*, once per circle. Peak values halve the count." },
-    { "label": "1",
-      "correct": false,
-      "why": "This forgets the window stretch: u = 2x covers two circles, and each contributes its single peak. One is the answer for plain sin x = 1." },
-    { "label": "0",
-      "correct": false,
-      "why": "sin can reach 1 — it's the maximum, attained at the top of every circle. Zero solutions would need |c| > 1, like sin(2x) = 1.4." }
-  ]
-}
-</script>
-
-<h2>Worked example 3 — Tangent, one per period</h2>
+<h2>Example 2 — with a phase shift inside</h2>
+<p>Now the inside is <span class="math">2x − π/3</span>. This is where dividing by B on autopilot breaks.</p>
 
 <div class="step-reveal" data-steps="steps2"></div>
 <script type="application/json" id="steps2">
 {
-  "problem": "Solve tan(2θ) = 1 on [0, 2π). How many solutions?",
+  "problem": "Solve sin(2x − π/3) = 1/2 on [0, 2π).",
   "steps": [
-    { "hint": "Tangent's period is π, not 2π. With u = 2θ covering [0, 4π), how many tangent periods is that?",
-      "result": "[0, 4π) holds four π-length periods — so four solutions, one per period.",
-      "note": "Tangent hits every real value exactly once per period: no two-per-circle, no peak exception, no |c| ceiling. Its count is the simplest of the three." },
-    { "hint": "Base solution: tan u = 1 at which u?",
-      "result": "u = π/4" },
-    { "hint": "Add π repeatedly while staying under 4π.",
-      "result": "u = π/4, 5π/4, 9π/4, 13π/4" },
-    { "hint": "Divide by 2.",
-      "result": "θ = π/8, 5π/8, 9π/8, 13π/8  — four solutions",
-      "note": "Notice the answers march by π/2 — the solutions of tan(Bθ) = c are always evenly spaced by π/B. If your list isn't evenly spaced, a root went missing." }
+    { "hint": "u = 2x − π/3. As x runs over [0, 2π), what does u run over?",
+      "result": "x = 0 gives u = −π/3, and x → 2π gives u → 4π − π/3 = 11π/3.  So u ∈ [−π/3, 11π/3)",
+      "note": "Length = 11π/3 − (−π/3) = 4π. The shift MOVED the window; it did not change its length. So the count is still two circles' worth: 4." },
+    { "hint": "Where is sin u = 1/2? Give the general solutions.",
+      "result": "u = π/6 + 2πk  and  u = 5π/6 + 2πk" },
+    { "hint": "Which of those land inside [−π/3, 11π/3)?",
+      "result": "u = π/6, 5π/6, 13π/6, 17π/6",
+      "note": "The next ones, 25π/6 and 29π/6, exceed 11π/3 = 22π/6. And π/6 − 2π is below −π/3. Four survive, as predicted." },
+    { "hint": "Map back. Careful — undo the whole inside, not just the 2.",
+      "result": "x = (u + π/3)/2  →  x = π/4, 7π/12, 5π/4, 19π/12",
+      "note": "Dividing by 2 without first adding back the π/3 is the classic error here. Check: all four are inside [0, 2π) ✓, and they repeat every π — one period of sin(2x − π/3)." }
   ]
 }
 </script>
 
 <hr class="rule">
 
-<h2>Retrieval practice — interleaved with 0006</h2>
-<p>Mixed on purpose: counting questions and graph-reading questions shuffled together, because telling them apart is part of the skill.</p>
+<h2>Drills</h2>
+<p>Thirty-four problems in three blocks: stretch the window, count without solving, then solve and check. Budget about fifteen minutes and do all three in one sitting — the timer in each block starts on your first answer. At the end of a block, redo only what you missed.</p>
 
-<div class="retrieval-quiz" data-quiz="quiz1"></div>
-<script type="application/json" id="quiz1">
-[
-  {"q": "How many solutions does cos(3x) = 0.2 have on [0, 2π)?", "a": "6", "choices": ["6", "3", "2", "12"]},
-  {"q": "How many solutions does cos(2x) = −1 have on [0, 2π)?", "a": "2", "choices": ["2", "4", "1", "0"]},
-  {"q": "How many solutions does tan(3x) = 5 have on [0, 2π)?", "a": "6", "choices": ["6", "3", "2", "0"]},
-  {"q": "How many solutions does sin(2x) = 1.3 have on [0, 2π)?", "a": "0", "choices": ["0", "2", "4", "1"]},
-  {"q": "A curve has a maximum at x = 0 and midline y = 0. Its cleanest form is:", "a": "an ordinary cosine", "choices": ["an ordinary cosine", "a reflected cosine", "an ordinary sine", "a reflected sine"]},
-  {"q": "If x runs over [0, 2π), then u = 4x runs over:", "a": "[0, 8π)", "choices": ["[0, 8π)", "[0, 4π)", "[0, 2π)", "[0, π/2)"]},
-  {"q": "The solutions of tan(Bθ) = c are always spaced exactly:", "a": "π/B apart", "choices": ["π/B apart", "2π/B apart", "π apart", "unevenly"]}
-]
+<div class="drill-set" data-drill="drillA"></div>
+<script type="application/json" id="drillA">
+{
+  "title": "Drill A — stretch the window",
+  "note": "Step 2, on its own. Get the u-window right and the rest of the problem is bookkeeping.",
+  "items": [
+    {"q": "x ∈ [0, 2π) and u = 4x. Then u ∈", "a": "[0, 8π)",
+     "choices": ["[0, 8π)", "[0, 4π)", "[0, 2π)", "[0, π/2)"],
+     "why": "Multiply both endpoints by 4. Four circles, not one."},
+    {"q": "x ∈ [0, 2π) and u = 3x. Then u ∈", "a": "[0, 6π)",
+     "choices": ["[0, 6π)", "[0, 3π)", "[0, 2π)", "[0, 2π/3)"],
+     "why": "3 × 2π = 6π. Note the window gets LONGER as B grows — dividing is the map back, not the stretch."},
+    {"q": "x ∈ [0, 2π) and u = 2x. How many full circles does u sweep?", "a": "2",
+     "choices": ["2", "1", "4", "1/2"],
+     "why": "[0, 4π) is two laps of 2π. That count is the whole reason cos(2x) = c has twice as many roots as cos x = c."},
+    {"q": "x ∈ [0, 2π) and u = 5x. How many full circles does u sweep?", "a": "5",
+     "choices": ["5", "10", "2.5", "1"],
+     "why": "B circles, always. The 10 would be the solution count for a crossing value, not the circle count."},
+    {"q": "x ∈ [0, π) and u = 2x. Then u ∈", "a": "[0, 2π)",
+     "choices": ["[0, 2π)", "[0, π)", "[0, 4π)", "[0, π/2)"],
+     "why": "A half-length interval with B = 2 gives exactly one circle. The interval is not always [0, 2π) — read it."},
+    {"q": "x ∈ [0, 2π) and u = 2x − π/3. Then u ∈", "a": "[−π/3, 11π/3)",
+     "choices": ["[−π/3, 11π/3)", "[0, 4π)", "[−π/3, 4π)", "[π/3, 11π/3)"],
+     "why": "Substitute both endpoints: 2(0) − π/3 = −π/3, and 2(2π) − π/3 = 11π/3."},
+    {"q": "For u = 2x − π/3 with x ∈ [0, 2π), the LENGTH of the u-window is:", "a": "4π",
+     "choices": ["4π", "2π", "11π/3", "4π − π/3"],
+     "why": "11π/3 − (−π/3) = 4π. A phase shift slides the window without stretching it, so it never changes the count."},
+    {"q": "A phase shift inside changes the u-window's:", "a": "position, not its length",
+     "choices": ["position, not its length", "length, not its position", "both position and length", "neither"],
+     "why": "Only B sets the length. This is why sin(2x − π/3) = c has the same number of roots as sin(2x) = c."},
+    {"q": "If u = 2x − π/3, then x =", "a": "(u + π/3)/2",
+     "choices": ["(u + π/3)/2", "(u − π/3)/2", "2u + π/3", "u/2 − π/3"],
+     "why": "Undo the whole inside: add π/3 back first, then divide by 2. Order matters."},
+    {"q": "x ∈ [−π, π) and u = 2x. Then u ∈", "a": "[−2π, 2π)",
+     "choices": ["[−2π, 2π)", "[−π, π)", "[0, 4π)", "[−4π, 4π)"],
+     "why": "Both endpoints double. Still 4π long — two circles — just centred on zero."}
+  ]
+}
 </script>
 
-<div class="ask-agent">The 2B / B / 0 count rule is worth saying aloud until it's automatic: crossings twice per circle, peaks once, impossible never. Want a drill of ten count-only questions with mixed B values and edge cases? Ask.</div>
+<div class="drill-set" data-drill="drillB"></div>
+<script type="application/json" id="drillB">
+{
+  "title": "Drill B — count without solving",
+  "note": "All on [0, 2π). Crossings twice per circle, peaks once, impossible never. Tangent: once per period.",
+  "items": [
+    {"q": "How many solutions does cos(2x) = 1/2 have?", "a": "4",
+     "choices": ["4", "2", "8", "1"],
+     "why": "2B with B = 2. Two circles, two crossings each."},
+    {"q": "How many solutions does sin(3x) = 0.4 have?", "a": "6",
+     "choices": ["6", "3", "2", "12"],
+     "why": "2B with B = 3. The 12 comes from spending B twice — stretching to [0, 6π) and then multiplying by 2B again."},
+    {"q": "How many solutions does cos(3x) = 0.2 have?", "a": "6",
+     "choices": ["6", "3", "2", "12"],
+     "why": "Same count as sine — the shape is identical, only the starting phase differs."},
+    {"q": "How many solutions does sin(2x) = 1 have?", "a": "2",
+     "choices": ["2", "4", "1", "0"],
+     "why": "The peak case. y = 1 touches the wave once per circle instead of crossing it twice, so the count is B, not 2B."},
+    {"q": "How many solutions does cos(2x) = −1 have?", "a": "2",
+     "choices": ["2", "4", "1", "0"],
+     "why": "−1 is also a peak value — the trough. Count is B = 2."},
+    {"q": "How many solutions does sin(2x) = 1.3 have?", "a": "0",
+     "choices": ["0", "2", "4", "1"],
+     "why": "Sine never exceeds 1. No amount of window stretching creates a solution that does not exist."},
+    {"q": "How many solutions does cos(4x) = 0 have?", "a": "8",
+     "choices": ["8", "4", "2", "16"],
+     "why": "0 is strictly between −1 and 1, so it is an ordinary crossing: 2B = 8."},
+    {"q": "How many solutions does sin(2x) = 0 have?", "a": "4",
+     "choices": ["4", "2", "8", "3"],
+     "why": "Zero is a crossing value, not a peak: 2B = 4, at x = 0, π/2, π, 3π/2."},
+    {"q": "How many solutions does tan(3x) = 5 have?", "a": "6",
+     "choices": ["6", "3", "2", "0"],
+     "why": "Tangent hits every real value once per π-period, and [0, 6π) holds six of them. No value is out of reach, so 5 is fine."},
+    {"q": "How many solutions does tan(2θ) = 1 have?", "a": "4",
+     "choices": ["4", "2", "8", "1"],
+     "why": "[0, 4π) holds four π-length periods, one root each."},
+    {"q": "How many solutions does tan(x) = −7 have?", "a": "2",
+     "choices": ["2", "1", "4", "0"],
+     "why": "B = 1, so 2B = 2 — one in QII, one in QIV. Tangent has no |c| ceiling."},
+    {"q": "How many solutions does sin(x/2) = 1/2 have?", "a": "2",
+     "choices": ["2", "1", "4", "0"],
+     "why": "B = 1/2, so u = x/2 covers only [0, π) — half a circle. The 2B shortcut assumes whole circles; here count inside the window: u = π/6 and 5π/6 both fit, so x = π/3 and 5π/3."}
+  ]
+}
+</script>
+
+<div class="drill-set" data-drill="drillC"></div>
+<script type="application/json" id="drillC">
+{
+  "title": "Drill C — solve and check",
+  "note": "Steps 3 and 4. Find the roots, map them back, and confirm they land inside the original interval.",
+  "items": [
+    {"q": "cos(2x) = 1/2 on [0, 2π). The solutions are:", "a": "π/6, 5π/6, 7π/6, 11π/6",
+     "choices": ["π/6, 5π/6, 7π/6, 11π/6", "π/3, 5π/3, 7π/3, 11π/3", "π/6, 11π/6", "π/12, 5π/12, 7π/12, 11π/12"],
+     "why": "u = π/3, 5π/3, 7π/3, 11π/3, each divided by 2. The second choice forgot to divide — and two of those exceed 2π."},
+    {"q": "tan(2θ) = 1 on [0, 2π). The solutions are:", "a": "π/8, 5π/8, 9π/8, 13π/8",
+     "choices": ["π/8, 5π/8, 9π/8, 13π/8", "π/4, 5π/4, 9π/4, 13π/4", "π/8, 9π/8", "π/8, 3π/8, 5π/8, 7π/8"],
+     "why": "u = π/4 + kπ inside [0, 4π), then halved. Note the answers march by π/2 = π/B."},
+    {"q": "sin(2x) = 1 on [0, 2π). The solutions are:", "a": "π/4, 5π/4",
+     "choices": ["π/4, 5π/4", "π/4, 3π/4", "π/2, 3π/2", "π/4, 5π/4, 9π/4, 13π/4"],
+     "why": "u = π/2 and 5π/2 — one peak per circle — halved. The last choice ignores that 9π/4 and 13π/4 map outside [0, 2π)."},
+    {"q": "cos u = 1/2 gives u = π/3, 5π/3 in the first circle. The second circle gives:", "a": "7π/3, 11π/3",
+     "choices": ["7π/3, 11π/3", "2π/3, 4π/3", "4π/3, 8π/3", "π/3 + π, 5π/3 + π"],
+     "why": "Add 2π to each, not π. Adding π would land you on the values where cosine equals −1/2."},
+    {"q": "The solutions of tan(3x) = c are spaced exactly:", "a": "π/3 apart",
+     "choices": ["π/3 apart", "2π/3 apart", "π apart", "3π apart"],
+     "why": "π/B, from tangent's π-period divided by B. Uneven spacing in your list means a root went missing."},
+    {"q": "You find u = 7π/3 with u = 3x. Then x =", "a": "7π/9",
+     "choices": ["7π/9", "7π/3", "21π", "7π/6"],
+     "why": "Divide by B = 3: (7π/3)/3 = 7π/9. The 7π/6 halves instead of thirding."},
+    {"q": "Which of these solves sin(2x − π/3) = 1/2?", "a": "π/4",
+     "choices": ["π/4", "π/3", "π/6", "π/12"],
+     "why": "2(π/4) − π/3 = π/2 − π/3 = π/6, and sin(π/6) = 1/2 ✓. Always confirm by substituting into the ORIGINAL equation."},
+    {"q": "How many solutions does sin(2x − π/3) = 1/2 have on [0, 2π)?", "a": "4",
+     "choices": ["4", "2", "6", "8"],
+     "why": "The shift slides the u-window to [−π/3, 11π/3) but leaves it 4π long — two circles, two crossings each."},
+    {"q": "Your roots of tan(2x) = c come out as π/8, 5π/8, 13π/8. This means:", "a": "a root is missing",
+     "choices": ["a root is missing", "one root is extra", "the list is correct", "the interval is wrong"],
+     "why": "Spacing should be π/B = π/2 = 4π/8 throughout, but 5π/8 to 13π/8 is a gap of π. The dropped root is 9π/8."},
+    {"q": "The smallest solution of cos(3x) = 0 on [0, 2π) is:", "a": "π/6",
+     "choices": ["π/6", "π/2", "π/3", "π/12"],
+     "why": "cos u = 0 first at u = π/2, and x = u/3 = π/6. The π/2 forgot to divide by B."},
+    {"q": "sin(x/2) = 1/2 on [0, 2π). The solutions are:", "a": "π/3, 5π/3",
+     "choices": ["π/3, 5π/3", "π/6, 5π/6", "2π/3, 10π/3", "π/3 only"],
+     "why": "u = π/6 and 5π/6, then x = 2u. The third choice doubled the wrong roots and pushed 10π/3 outside the interval."},
+    {"q": "After dividing by B, every answer must be checked against:", "a": "the original interval",
+     "choices": ["the original interval", "the stretched u-window", "the value of B", "tangent's period"],
+     "why": "The u-window was a scaffold. The question was asked about x, so the final list has to sit inside the interval x was given."}
+  ]
+}
+</script>
+
+<div class="ask-agent">Tell me which ones you missed — the redo button at the end of each block lists them. If Drill A came apart the problem is the substitution itself and everything downstream will stay broken until that is fixed; if only Drill C did, you can count correctly and just need practice mapping back.</div>
 
 <nav class="pagenav">
   <a class="pagenav-btn" href="0006-graph-to-equation.html">
