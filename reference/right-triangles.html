@@ -9,7 +9,7 @@
 
 <div class="kicker">Reference · CLEP Precalculus</div>
 <h1>Right Triangle Trig</h1>
-<p class="subtitle">Companion to <a href="../lessons/0002-right-triangles.html">Lesson 0002</a>. Print it; keep it beside you while drilling. Special-angle values condensed from <a href="https://tutorial.math.lamar.edu/extras/cheatsheets_tables.aspx">Paul's Online Math Notes — Trig Cheat Sheet</a>.</p>
+<p class="subtitle">Companion to <a href="../lessons/0002-right-triangles.html">Lesson 0002</a> and <a href="../lessons/0005-triangle-from-ratio.html">Lesson 0005</a>. Print it; keep it beside you while drilling. Special-angle values condensed from <a href="https://tutorial.math.lamar.edu/extras/cheatsheets_tables.aspx">Paul's Online Math Notes — Trig Cheat Sheet</a>.</p>
 
 <h2>The three ratios</h2>
 <table>
@@ -46,6 +46,59 @@
   <span class="callout-label">Notation trap</span>
   <span class="math">sin⁻¹θ</span> is the <em>inverse sine</em>. It is <strong>not</strong> <span class="math">1/sin θ</span> — that's <span class="math">csc θ</span>. CLEP baits this deliberately.
 </div>
+
+<h2>One ratio → all six</h2>
+<p>Companion to <a href="../lessons/0005-triangle-from-ratio.html">Lesson 0005</a>. A single given ratio is a blueprint: it names two sides of a right triangle, Pythagoras supplies the third, and every other function is then a read-off.</p>
+<table>
+  <tr><th>Given</th><th>Names</th><th>Third side</th></tr>
+  <tr><td class="math">sin θ, csc θ</td><td>opposite &amp; hypotenuse</td><td class="math">adj = √(hyp² − opp²)</td></tr>
+  <tr><td class="math">cos θ, sec θ</td><td>adjacent &amp; hypotenuse</td><td class="math">opp = √(hyp² − adj²)</td></tr>
+  <tr><td class="math">tan θ, cot θ</td><td>both legs</td><td class="math">hyp = √(opp² + adj²)</td></tr>
+</table>
+<div class="callout">
+  <span class="callout-label">Add or subtract?</span>
+  If the given ratio <strong>mentions the hypotenuse</strong> (sin, cos, sec, csc), you <strong>subtract</strong> under the radical. If it names <strong>two legs</strong> (tan, cot), you <strong>add</strong>. That one question settles the sign inside every Pythagoras step in this topic.
+</div>
+<p>For a bare letter, take the missing side as <strong>1</strong>: <span class="math">sin θ = x</span> means opp <span class="math">x</span>, hyp <span class="math">1</span>. It keeps the algebra clean and matches how answer choices are written.</p>
+
+<h2>Triples worth recognising</h2>
+<p>CLEP leans on these so the no-calculator arithmetic stays clean. If small integers hand you an ugly radical, re-check the setup before trusting it.</p>
+<table>
+  <tr><th>Triple</th><th>Triple</th><th>Triple</th><th>Triple</th></tr>
+  <tr><td class="math">3-4-5</td><td class="math">5-12-13</td><td class="math">8-15-17</td><td class="math">7-24-25</td></tr>
+</table>
+<p>Multiples count too — <span class="math">6-8-10</span> and <span class="math">9-12-15</span> are the same triangle scaled.</p>
+
+<h2>Size from the triangle, sign from the quadrant</h2>
+<p>The triangle only ever gives you a <strong>magnitude</strong>. If the problem places θ outside QI, keep the number and set the sign separately. Two steps, never one.</p>
+<table>
+  <tr><th>Quadrant</th><th>QI</th><th>QII</th><th>QIII</th><th>QIV</th></tr>
+  <tr><th>positive</th><td>all</td><td class="math">sin, csc</td><td class="math">tan, cot</td><td class="math">cos, sec</td></tr>
+</table>
+<p><strong>A</strong>ll <strong>S</strong>tudents <strong>T</strong>ake <strong>C</strong>alculus, counted anticlockwise from QI.</p>
+
+<h2>Standard compositions</h2>
+<p>Each is one triangle in disguise. <span class="math">cos(sin⁻¹ x)</span> reads as <em>"the cosine of the angle whose sine is x"</em> — draw that angle and read off the cosine. These forms appear verbatim as answer choices, so recognising them is faster than deriving them, but derive them when in doubt.</p>
+<table>
+  <tr><th>Expression</th><th>Equals</th><th>Expression</th><th>Equals</th></tr>
+  <tr><td class="math">cos(sin⁻¹ x)</td><td class="math">√(1 − x²)</td><td class="math">sin(cos⁻¹ x)</td><td class="math">√(1 − x²)</td></tr>
+  <tr><td class="math">tan(sin⁻¹ x)</td><td class="math">x/√(1 − x²)</td><td class="math">tan(cos⁻¹ x)</td><td class="math">√(1 − x²)/x</td></tr>
+  <tr><td class="math">sin(tan⁻¹ x)</td><td class="math">x/√(1 + x²)</td><td class="math">cos(tan⁻¹ x)</td><td class="math">1/√(1 + x²)</td></tr>
+</table>
+<div class="callout">
+  <span class="callout-label">The minus does not always carry</span>
+  <span class="math">cos(sin⁻¹(−3/5)) = +4/5</span>. Arcsine of a negative lands in <strong>QIV</strong>, where cosine is positive. Resolve the inner angle's quadrant <em>first</em>, then take the sign from there — never propagate the minus by reflex.
+</div>
+
+<h2>Common wrong turns</h2>
+<table>
+  <tr><th>The slip</th><th>The correction</th></tr>
+  <tr><td>Reading tan as opp/hyp</td><td>Tangent never involves the hypotenuse; that is sine's blueprint</td></tr>
+  <tr><td>Swapping opposite and adjacent</td><td>You answered for the <em>other</em> acute angle; name sides after choosing θ</td></tr>
+  <tr><td>Hypotenuse = 2 + 3 = 5</td><td>Pythagoras adds squares: √13 ≈ 3.6. A 2-3-5 triangle is impossible</td></tr>
+  <tr><td>Skipping the quadrant sign</td><td>Right magnitude, missing step — the quadrant was stated for a reason</td></tr>
+  <tr><td>Answering the reciprocal</td><td>5/4 is sec, not cos; and no cosine can exceed 1 in magnitude</td></tr>
+</table>
 
 <h2>Special right triangles</h2>
 <p>Memorize these two. They're the no-calculator (Section 2) workhorses — every exact-value question reduces to one of them.</p>
@@ -92,7 +145,17 @@
   <tr><td>Check calculator mode every time units change</td><td class="math">sin 35° = 0.574 vs sin(35 rad) = −0.428</td></tr>
 </table>
 
-<div class="nav">
-  <span><a href="../lessons/0002-right-triangles.html">← Lesson 0002</a></span>
-  <span><a href="trig-identities.html">↳ Reference: Trig Identities</a></span>
-</div>
+<nav class="pagenav">
+  <a class="pagenav-btn" href="../lessons/0005-triangle-from-ratio.html">
+    <span class="pagenav-dir">← Lesson</span>
+    <span class="pagenav-name">0005 · The Triangle Inside the Ratio</span>
+  </a>
+  <a class="pagenav-btn pagenav-home" href="../index.html">
+    <span class="pagenav-dir">⌂ Home</span>
+    <span class="pagenav-name">All lessons</span>
+  </a>
+  <a class="pagenav-btn pagenav-next" href="trig-identities.html">
+    <span class="pagenav-dir">Reference →</span>
+    <span class="pagenav-name">Trig Identities</span>
+  </a>
+</nav>

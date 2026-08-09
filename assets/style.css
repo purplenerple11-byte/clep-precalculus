@@ -668,12 +668,218 @@ th {
   line-height: 1.5;
 }
 
+/* ── Drill set ───────────────────────────────────────────── */
+
+.drill-box {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1.1rem 1.3rem 1.3rem;
+  margin: 1.5rem 0;
+}
+
+.drill-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.drill-title {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.drill-meter {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.drill-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0.7rem 0 0;
+}
+
+.drill-body { margin-top: 1rem; }
+
+.drill-q {
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.12rem;
+  margin-bottom: 1rem;
+}
+
+.drill-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.drill-choice {
+  font-family: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+  padding: 0.55rem 0.9rem;
+  border-radius: 5px;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.drill-choice:hover:not(:disabled) { border-color: var(--accent); }
+.drill-choice:disabled { opacity: 0.5; cursor: default; }
+.drill-choice-good {
+  opacity: 1 !important;
+  border-color: var(--good);
+  background: var(--good-soft);
+  color: var(--good);
+}
+.drill-choice-bad {
+  opacity: 1 !important;
+  border-color: var(--bad);
+  background: var(--bad-soft);
+  color: var(--bad);
+}
+
+.drill-why {
+  display: none;
+  margin-top: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 5px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.drill-why-good { background: var(--good-soft); color: var(--good); }
+.drill-why-bad { background: var(--bad-soft); color: var(--bad); }
+
+.drill-btn {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.drill-btn:hover { border-color: var(--accent); }
+
+.drill-btn-primary {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.drill-next { margin-top: 0.9rem; }
+
+.drill-done {
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.9rem;
+}
+
+.drill-clean { font-size: 0.9rem; color: var(--muted); margin: 0 0 1rem; }
+
+.drill-missed {
+  border-top: 1px solid var(--rule);
+  padding-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.drill-missed-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--bad);
+  margin-bottom: 0.5rem;
+}
+
+.drill-missed-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 0.85rem;
+}
+
+.drill-missed-q { color: var(--text); }
+.drill-missed-a { color: var(--accent); white-space: nowrap; }
+
+.drill-btnrow { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+/* ── Page navigation footer ──────────────────────────────── */
+
+.pagenav {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.pagenav-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.pagenav-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+
+.pagenav-dir {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.pagenav-name {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.pagenav-home { text-align: center; align-items: center; }
+.pagenav-next { text-align: right; align-items: flex-end; }
+
+/* An empty slot keeps the home button centred on the first and last lessons. */
+.pagenav-gap { border: none; }
+
+@media (max-width: 480px) {
+  .pagenav { grid-template-columns: 1fr; }
+  .pagenav-next, .pagenav-home { text-align: left; align-items: flex-start; }
+  .pagenav-gap { display: none; }
+}
+
 @media print {
   body { max-width: 100%; font-size: 12pt; margin: 0; padding: 0.5in; }
-  .ask-agent, .nav { display: none; }
+  .ask-agent, .nav, .pagenav { display: none; }
   a { color: var(--text); text-decoration: none; }
   .steps-result, .picker-result { display: block !important; }
   .steps-btn, .tri-toggle { display: none; }
   .tri-arc { opacity: 1 !important; }
   .sino-controls, .sino-fntoggle { display: none; }
+  .drill-choices, .drill-btn { display: none; }
+  .drill-why { display: block !important; }
 }

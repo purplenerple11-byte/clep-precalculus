@@ -6,25 +6,24 @@
 <link rel="icon" href="../icons/icon-192.png">
 <title>0005 — The Triangle Inside the Ratio</title>
 <link rel="stylesheet" href="../assets/style.css">
-<script src="../assets/quiz.js" defer></script>
-<script src="../assets/strategy-picker.js" defer></script>
 <script src="../assets/step-reveal.js" defer></script>
 <script src="../assets/triangle.js" defer></script>
+<script src="../assets/drill.js" defer></script>
 
 <div class="kicker">Lesson 0005 · CLEP Precalculus</div>
 <h1>The Triangle Inside the Ratio</h1>
-<p class="subtitle">One ratio is never just one fact. Given sin θ = z/10, you can recover every other trig value of θ — by drawing the triangle the ratio is secretly describing.</p>
+<p class="subtitle">Given one trig value of an angle, recover all the others — by drawing the triangle the ratio is describing. Two worked examples, then twenty-nine drills.</p>
 
-<p>This is the move CLEP tests constantly without ever naming it: you're handed a single ratio — <span class="math">sin θ = z/10</span>, <span class="math">tan θ = 2/3</span> — and asked for a <em>different</em> function of the same angle. No calculator can do this for you in Section 2. The three-step recipe: <strong>draw the triangle the ratio describes, Pythagoras the missing side, read off what's asked.</strong></p>
+<p>CLEP hands you a single ratio — <span class="math">sin θ = 3/5</span>, <span class="math">tan θ = 2/3</span>, <span class="math">sin θ = z/10</span> — and asks for a <em>different</em> function of the same angle. In Section 2 there's no calculator, so the only route is the triangle.</p>
 
-<p><strong>Primary source for this lesson:</strong> <a href="https://tutorial.math.lamar.edu/extras/algebratrigreview/InverseTrig.aspx">Paul's Online Math Notes — Inverse Trig Functions</a> (the worked compositions there use exactly this triangle construction), together with <a href="../reference/right-triangles.html">your right-triangles reference</a>.</p>
+<p>Three moves, every time:</p>
+<ol>
+  <li><strong>Draw</strong> the triangle the ratio describes.</li>
+  <li><strong>Pythagoras</strong> the missing side.</li>
+  <li><strong>Read off</strong> whatever was asked.</li>
+</ol>
 
-<hr class="rule">
-
-<h2>The ratio is a blueprint</h2>
-<p><span class="math">sin θ = z/10</span> says: <em>there is a right triangle where the side opposite θ is z and the hypotenuse is 10.</em> That's a full blueprint — Pythagoras fills in the third side:</p>
-
-<p class="math">adjacent = √(10² − z²) = √(100 − z²)</p>
+<p><span class="math">sin θ = z/10</span> says: <em>there is a right triangle whose side opposite θ is z and whose hypotenuse is 10.</em> That is a complete blueprint — the third side follows.</p>
 
 <div class="triangle-lab" data-triangle="tri1"></div>
 <script type="application/json" id="tri1">
@@ -32,121 +31,191 @@
   "legA": "√(100 − z²)",
   "legB": "z",
   "hyp": "10",
-  "caption": "The triangle hiding inside sin θ = z/10, with θ at vertex A. Once it's drawn, every other function is a read-off: cos θ = √(100 − z²)/10, tan θ = z/√(100 − z²), and the reciprocals by flipping. One ratio bought you all six."
+  "caption": "The triangle hiding inside sin θ = z/10, with θ at vertex A. Once it is drawn, every other function is a read-off: cos θ = √(100 − z²)/10, tan θ = z/√(100 − z²), and the reciprocals by flipping."
 }
 </script>
 
-<p>Everything from lesson <a href="0002-right-triangles.html">0002</a> still applies — this is the same setup checklist, run in reverse: instead of measuring a triangle to get a ratio, you unfold a ratio back into a triangle.</p>
+<p><strong>Read before drilling:</strong> <a href="https://tutorial.math.lamar.edu/extras/algebratrigreview/InverseTrig.aspx">Paul's Online Math Notes — Inverse Trig Functions</a> works compositions with exactly this construction. The heuristics, traps and sanity checks for this lesson now live in <a href="../reference/right-triangles.html">the right-triangles reference</a> — keep it open beside you.</p>
 
-<h2>Worked example 1 — Numbers first</h2>
+<hr class="rule">
+
+<h2>Example 1 — the basic move</h2>
+<p>Predict each line before you reveal it.</p>
 
 <div class="step-reveal" data-steps="steps1"></div>
 <script type="application/json" id="steps1">
 {
   "problem": "θ is acute and sin θ = 3/5. Find all six trig functions of θ.",
   "steps": [
-    { "hint": "Read the blueprint: which sides does sin θ = 3/5 hand you?",
+    { "hint": "Read the blueprint: which two sides does sin θ = 3/5 name?",
       "result": "opposite = 3,  hypotenuse = 5" },
     { "hint": "Pythagoras for the third side.",
-      "result": "adjacent = √(5² − 3²) = √16 = 4",
-      "note": "The 3-4-5 triangle. CLEP leans on 3-4-5 and 5-12-13 heavily because the arithmetic stays clean — if you get an ugly radical from small integers, recheck." },
+      "result": "adjacent = √(5² − 3²) = √16 = 4" },
     { "hint": "Read off the other five.",
       "result": "cos θ = 4/5,  tan θ = 3/4,  csc θ = 5/3,  sec θ = 5/4,  cot θ = 4/3",
-      "note": "The reciprocals are just flips — no new triangle work. Six values from one ratio." }
+      "note": "Six values from one ratio, and the three reciprocals cost nothing but a flip." }
   ]
 }
 </script>
 
-<h2>Worked example 2 — Choose the setup</h2>
-
-<div class="strategy-picker" data-picker="picker1"></div>
-<script type="application/json" id="picker1">
-{
-  "problem": "θ is acute and tan θ = 2/3. Find sin θ.",
-  "prompt": "What does the triangle look like, and what is sin θ?",
-  "options": [
-    { "label": "opp 2, adj 3, hyp √13 → sin θ = 2/√13",
-      "correct": true,
-      "why": "Right. Tangent's blueprint is opp/adj, so opp = 2, adj = 3, and the hypotenuse is √(4+9) = √13. Then sin θ = opp/hyp = 2/√13 (= 2√13/13 rationalized — CLEP lists both forms)." },
-    { "label": "opp 2, hyp 3, adj √5 → sin θ = 2/3",
-      "correct": false,
-      "why": "This reads tan as opp/hyp — but that's sine's blueprint. Tangent never involves the hypotenuse. Misreading which two sides the given ratio names is the main way this problem type goes wrong." },
-    { "label": "opp 3, adj 2, hyp √13 → sin θ = 3/√13",
-      "correct": false,
-      "why": "Sides swapped: tan θ = opp/adj = 2/3 puts the 2 on top, so the *opposite* side is 2. This answer computes sin of the *other* acute angle — the opposite/adjacent swap from lesson 0002 striking again." },
-    { "label": "opp 2, adj 3, hyp 5 → sin θ = 2/5",
-      "correct": false,
-      "why": "The hypotenuse isn't 2 + 3. Pythagoras adds *squares*: √(2² + 3²) = √13 ≈ 3.6, not 5. Adding the legs directly is a slip that shows up under time pressure — the sanity check is that 5 would make this a 2-3-5 'triangle', which violates the triangle inequality." }
-  ]
-}
-</script>
-
-<h2>The bridge to lesson 0004 — cos(arcsin x)</h2>
-<p>Here's where this lesson and the last one become one skill. An expression like <span class="math">cos(sin⁻¹ 3/5)</span> reads as a monster until you translate it: <em>"the cosine of the angle whose sine is 3/5."</em> That's just worked example 1 wearing inverse-trig notation.</p>
+<h2>Example 2 — the version CLEP actually asks</h2>
+<p>Same machinery, two extra complications: inverse notation on the outside, and an angle that is not acute.</p>
 
 <div class="step-reveal" data-steps="steps2"></div>
 <script type="application/json" id="steps2">
 {
-  "problem": "Evaluate  cos(sin⁻¹ 3/5)  — no calculator.",
+  "problem": "Evaluate cos(sin⁻¹ 3/5), then find cos θ when sin θ = 3/5 and θ lies in QII.",
   "steps": [
-    { "hint": "Name the inner thing: let θ = sin⁻¹(3/5). What do you know about θ?",
-      "result": "sin θ = 3/5, and θ is in [−π/2, π/2] — here in QI since 3/5 > 0.",
-      "note": "The principal range from lesson 0004 is what licenses the next step: a QI angle means an honest right triangle with all sides positive." },
-    { "hint": "Unfold the blueprint. Which triangle, and what's cos θ?",
+    { "hint": "Translate the notation. What does sin⁻¹(3/5) name?",
+      "result": "the angle whose sine is 3/5 — call it θ, with sin θ = 3/5",
+      "note": "arcsin returns values in [−π/2, π/2], so this θ is in QI: an honest triangle, all sides positive." },
+    { "hint": "That is Example 1 again. So what is cos(sin⁻¹ 3/5)?",
       "result": "opp 3, hyp 5 → adj 4 → cos(sin⁻¹ 3/5) = 4/5" },
-    { "hint": "Same idea in general: what is tan(sin⁻¹ x) for x in (0, 1)?",
+    { "hint": "Now the second question: sin θ = 3/5 but θ is in QII. What changes?",
+      "result": "the triangle is unchanged — magnitude 4/5 — but cosine is negative in QII, so cos θ = −4/5",
+      "note": "The triangle only ever gives you the size. The quadrant gives the sign. Two separate steps, always." },
+    { "hint": "Same idea with a letter instead of a number: tan(sin⁻¹ x) for 0 < x < 1?",
       "result": "opp x, hyp 1 → adj √(1 − x²) → tan(sin⁻¹ x) = x/√(1 − x²)",
-      "note": "Hypotenuse 1 is the cleanest blueprint for a bare x — this general form appears verbatim as a CLEP answer choice." }
-  ]
-}
-</script>
-
-<h2>When θ isn't acute — the sign step</h2>
-<p>The triangle only hands you <em>magnitudes</em>. If the problem places θ outside QI, you keep the triangle's numbers and set the sign from the quadrant.</p>
-
-<div class="strategy-picker" data-picker="picker2"></div>
-<script type="application/json" id="picker2">
-{
-  "problem": "sin θ = 3/5 and θ is in QII. Find cos θ.",
-  "prompt": "Same triangle as before — what changes?",
-  "options": [
-    { "label": "cos θ = −4/5",
-      "correct": true,
-      "why": "Right. The 3-4-5 triangle still gives magnitude 4/5, but cosine is negative in QII (x-coordinates are negative there). Triangle for the size, quadrant for the sign — always two separate steps." },
-    { "label": "cos θ = 4/5",
-      "correct": false,
-      "why": "This is the answer for acute θ. The problem moved θ to QII precisely to test whether you apply the quadrant sign — cosine is negative there. The magnitude is right; the sign step got skipped." },
-    { "label": "cos θ = −3/5",
-      "correct": false,
-      "why": "Right sign, wrong side: 3 is the *opposite* side (it came from sin θ = 3/5). Cosine's magnitude comes from the adjacent side, 4. This mixes up which leg belongs to which function." },
-    { "label": "cos θ = 5/4",
-      "correct": false,
-      "why": "That's sec θ (flipped), and with no quadrant sign either. Also impossible on its face: cosine can never exceed 1 in magnitude — an instant sanity-check rejection." }
+      "note": "Hypotenuse 1 is the cleanest blueprint for a bare x. This general form appears verbatim as a CLEP answer choice." }
   ]
 }
 </script>
 
 <hr class="rule">
 
-<h2>Retrieval practice — interleaved with 0004</h2>
-<p>Deliberately mixed: evaluations, compositions, and triangle builds in one shuffled set. Deciding <em>which tool a question wants</em> is most of the exam skill — sorted practice never trains it.</p>
+<h2>Drills</h2>
+<p>Twenty-nine problems in three blocks, building from "find the third side" to full compositions with signs. Budget about fifteen minutes and do all three in one sitting — the timer in each block runs from your first answer so you can see what you actually spent. At the end of a block, redo only the ones you missed.</p>
 
-<div class="retrieval-quiz" data-quiz="quiz1"></div>
-<script type="application/json" id="quiz1">
-[
-  {"q": "θ acute, cos θ = 5/13. What is sin θ?", "a": "12/13", "choices": ["12/13", "5/12", "13/12", "12/5"]},
-  {"q": "sin⁻¹(−√3/2) equals:", "a": "−π/3", "choices": ["−π/3", "4π/3", "5π/3", "2π/3"]},
-  {"q": "tan(sin⁻¹ x) equals, for 0 < x < 1:", "a": "x/√(1 − x²)", "choices": ["x/√(1 − x²)", "√(1 − x²)/x", "x·√(1 − x²)", "1/√(1 − x²)"]},
-  {"q": "tan θ = 5/12 with θ acute. The hypotenuse of the blueprint triangle is:", "a": "13", "choices": ["13", "17", "√17", "√119"]},
-  {"q": "sin⁻¹(sin 3π/4) equals:", "a": "π/4", "choices": ["π/4", "3π/4", "−π/4", "√2/2"]},
-  {"q": "cos θ = −8/17 with θ in QII. What is sin θ?", "a": "15/17", "choices": ["15/17", "−15/17", "8/15", "−8/17"]},
-  {"q": "cos(sin⁻¹ 1) equals:", "a": "0", "choices": ["0", "1", "π/2", "undefined"]}
-]
+<div class="drill-set" data-drill="drillA"></div>
+<script type="application/json" id="drillA">
+{
+  "title": "Drill A — build the triangle",
+  "note": "Only the missing side. Get this automatic and the rest of the lesson is arithmetic.",
+  "items": [
+    {"q": "θ acute, sin θ = 8/17. The adjacent side is:", "a": "15",
+     "choices": ["15", "9", "23", "√15"],
+     "why": "opp 8, hyp 17 → adj = √(289 − 64) = √225 = 15. The 8-15-17 triple, worth knowing on sight."},
+    {"q": "θ acute, tan θ = 7/24. The hypotenuse is:", "a": "25",
+     "choices": ["25", "31", "17", "√31"],
+     "why": "tan names the two legs, so hyp = √(49 + 576) = √625 = 25. The 7-24-25 triple."},
+    {"q": "θ acute, cos θ = 2/3. The opposite side is:", "a": "√5",
+     "choices": ["√5", "√13", "5", "1"],
+     "why": "adj 2, hyp 3 → opp = √(9 − 4) = √5. Subtract, because the given ratio included the hypotenuse."},
+    {"q": "θ acute, tan θ = 1/2. The hypotenuse is:", "a": "√5",
+     "choices": ["√5", "√3", "3", "2√2"],
+     "why": "Both givens are legs, so add: √(1 + 4) = √5."},
+    {"q": "θ acute, cot θ = 3/4. The hypotenuse is:", "a": "5",
+     "choices": ["5", "7", "√7", "25"],
+     "why": "cot = adj/opp, so adj 3 and opp 4 — both legs. √(9 + 16) = 5."},
+    {"q": "sin θ = z/10 with 0 < z < 10. The adjacent side is:", "a": "√(100 − z²)",
+     "choices": ["√(100 − z²)", "√(100 + z²)", "10 − z", "√(z² − 100)"],
+     "why": "hyp² − opp² = 100 − z². The hypotenuse was given, so this is a subtraction."},
+    {"q": "tan θ = x/4 with x > 0. The hypotenuse is:", "a": "√(x² + 16)",
+     "choices": ["√(x² + 16)", "√(16 − x²)", "x + 4", "√(x² − 16)"],
+     "why": "tan gives two legs, so the hypotenuse is the sum under the radical."},
+    {"q": "cos θ = 1/x with x > 1. The opposite side is:", "a": "√(x² − 1)",
+     "choices": ["√(x² − 1)", "√(1 − x²)", "√(x² + 1)", "x − 1"],
+     "why": "adj 1, hyp x → opp = √(x² − 1). Note which of x and 1 is the hypotenuse: cos = adj/hyp puts x on the bottom."}
+  ]
+}
 </script>
 
-<div class="ask-agent">If the interleaved set felt harder than the sorted quizzes in earlier lessons, that's by design — the difficulty is doing the encoding. Wrong answers here are the most useful signal yet: tell me which ones missed and I'll build the next drill around exactly those.</div>
+<div class="drill-set" data-drill="drillB"></div>
+<script type="application/json" id="drillB">
+{
+  "title": "Drill B — read off the rest",
+  "note": "All angles acute, so every answer is positive. One ratio in, a different one out.",
+  "items": [
+    {"q": "θ acute, cos θ = 5/13. Then sin θ =", "a": "12/13",
+     "choices": ["12/13", "5/12", "13/12", "12/5"],
+     "why": "adj 5, hyp 13 → opp 12. sin = opp/hyp = 12/13."},
+    {"q": "θ acute, sin θ = 8/17. Then tan θ =", "a": "8/15",
+     "choices": ["8/15", "15/8", "17/15", "8/17"],
+     "why": "opp 8, hyp 17, adj 15. tan = opp/adj = 8/15."},
+    {"q": "θ acute, tan θ = 3/4. Then sec θ =", "a": "5/4",
+     "choices": ["5/4", "4/5", "5/3", "3/5"],
+     "why": "opp 3, adj 4, hyp 5. sec = hyp/adj = 5/4."},
+    {"q": "θ acute, sec θ = 5/3. Then tan θ =", "a": "4/3",
+     "choices": ["4/3", "3/4", "4/5", "5/4"],
+     "why": "sec = hyp/adj, so hyp 5 and adj 3 → opp 4. tan = 4/3."},
+    {"q": "θ acute, sin θ = 1/3. Then cos θ =", "a": "2√2/3",
+     "choices": ["2√2/3", "√2/3", "2/3", "√8"],
+     "why": "opp 1, hyp 3 → adj = √8 = 2√2. cos = 2√2/3."},
+    {"q": "θ acute, tan θ = 2. Then sin θ =", "a": "2/√5",
+     "choices": ["2/√5", "1/√5", "√5/2", "2/3"],
+     "why": "Read 2 as 2/1: opp 2, adj 1, hyp √5. sin = 2/√5, or 2√5/5 rationalized."},
+    {"q": "θ acute, cos θ = x with 0 < x < 1. Then tan θ =", "a": "√(1 − x²)/x",
+     "choices": ["√(1 − x²)/x", "x/√(1 − x²)", "√(1 − x²)", "1/x"],
+     "why": "adj x, hyp 1 → opp √(1 − x²). tan = opp/adj puts the radical on top."},
+    {"q": "θ acute, sin θ = x/5. Then cot θ =", "a": "√(25 − x²)/x",
+     "choices": ["√(25 − x²)/x", "x/√(25 − x²)", "5/x", "√(25 − x²)/5"],
+     "why": "opp x, hyp 5 → adj √(25 − x²). cot = adj/opp."},
+    {"q": "θ acute, csc θ = 13/5. Then cos θ =", "a": "12/13",
+     "choices": ["12/13", "5/13", "13/12", "5/12"],
+     "why": "csc = hyp/opp, so hyp 13 and opp 5 → adj 12. cos = 12/13."}
+  ]
+}
+</script>
 
-<div class="nav">
-  <span><a href="0004-inverse-trig.html">← 0004: Inverse Trig &amp; the Principal Range</a></span>
-  <span><a href="0006-graph-to-equation.html">0006: Graph ↔ Equation →</a></span>
-</div>
+<div class="drill-set" data-drill="drillC"></div>
+<script type="application/json" id="drillC">
+{
+  "title": "Drill C — signs and compositions",
+  "note": "Now the angle can leave QI, and the notation can wrap the whole thing in an inverse. Size from the triangle, sign from the quadrant.",
+  "items": [
+    {"q": "sin θ = 3/5 with θ in QII. Then cos θ =", "a": "−4/5",
+     "choices": ["−4/5", "4/5", "−3/5", "−5/4"],
+     "why": "The 3-4-5 triangle gives magnitude 4/5; cosine is negative in QII."},
+    {"q": "cos θ = −8/17 with θ in QII. Then sin θ =", "a": "15/17",
+     "choices": ["15/17", "−15/17", "8/15", "−8/17"],
+     "why": "Magnitude 15/17 from the 8-15-17 triangle, and sine is positive in QII."},
+    {"q": "tan θ = 3/4 with θ in QIII. Then sin θ =", "a": "−3/5",
+     "choices": ["−3/5", "3/5", "−4/5", "4/5"],
+     "why": "3-4-5 gives 3/5; sine is negative in QIII. Note tan is positive in QIII, which is why QIII was possible at all."},
+    {"q": "cos θ = 12/13 with θ in QIV. Then tan θ =", "a": "−5/12",
+     "choices": ["−5/12", "5/12", "−12/5", "−5/13"],
+     "why": "adj 12, hyp 13 → opp 5, so magnitude 5/12; tangent is negative in QIV."},
+    {"q": "sin θ = −1/2 with θ in QIII. Then cos θ =", "a": "−√3/2",
+     "choices": ["−√3/2", "√3/2", "−1/2", "−2/√3"],
+     "why": "The 30-60-90 triangle gives magnitude √3/2, and cosine is negative in QIII."},
+    {"q": "cos(sin⁻¹ 3/5) equals:", "a": "4/5",
+     "choices": ["4/5", "3/4", "5/4", "−4/5"],
+     "why": "sin⁻¹(3/5) is a QI angle with sin = 3/5, so the 3-4-5 triangle gives cos = 4/5."},
+    {"q": "sin(tan⁻¹ 3/4) equals:", "a": "3/5",
+     "choices": ["3/5", "4/5", "3/4", "5/3"],
+     "why": "tan⁻¹(3/4) is a QI angle with opp 3, adj 4, hyp 5. sin = 3/5."},
+    {"q": "sec(tan⁻¹ 2) equals:", "a": "√5",
+     "choices": ["√5", "1/√5", "2/√5", "√3"],
+     "why": "opp 2, adj 1, hyp √5. sec = hyp/adj = √5/1."},
+    {"q": "cos(sin⁻¹(−3/5)) equals:", "a": "4/5",
+     "choices": ["4/5", "−4/5", "3/5", "−3/5"],
+     "why": "arcsin of a negative lands in QIV, where cosine is positive — so the sign does not carry through. 4/5."},
+    {"q": "tan(cos⁻¹ x) for 0 < x < 1 equals:", "a": "√(1 − x²)/x",
+     "choices": ["√(1 − x²)/x", "x/√(1 − x²)", "√(1 − x²)", "1/√(1 − x²)"],
+     "why": "adj x, hyp 1 → opp √(1 − x²), and tan = opp/adj."},
+    {"q": "sin(cos⁻¹ 0) equals:", "a": "1",
+     "choices": ["1", "0", "π/2", "undefined"],
+     "why": "cos⁻¹(0) = π/2, and sin(π/2) = 1. Degenerate cases still obey the rule; no triangle needed."},
+    {"q": "cos(tan⁻¹ x) for x > 0 equals:", "a": "1/√(1 + x²)",
+     "choices": ["1/√(1 + x²)", "x/√(1 + x²)", "√(1 + x²)", "1/√(1 − x²)"],
+     "why": "opp x, adj 1 → hyp √(1 + x²). cos = adj/hyp = 1/√(1 + x²). Note the PLUS: tangent names two legs."}
+  ]
+}
+</script>
+
+<div class="ask-agent">Tell me which ones you missed — the redo button at the end of each block lists them. Those are the drills I build next. If a whole block came apart, say so and I will re-teach that step rather than hand you more of the same.</div>
+
+<nav class="pagenav">
+  <a class="pagenav-btn" href="0004-inverse-trig.html">
+    <span class="pagenav-dir">← Previous</span>
+    <span class="pagenav-name">0004 · Inverse Trig &amp; the Principal Range</span>
+  </a>
+  <a class="pagenav-btn pagenav-home" href="../index.html">
+    <span class="pagenav-dir">⌂ Home</span>
+    <span class="pagenav-name">All lessons</span>
+  </a>
+  <a class="pagenav-btn pagenav-next" href="0006-graph-to-equation.html">
+    <span class="pagenav-dir">Next →</span>
+    <span class="pagenav-name">0006 · Graph ↔ Equation</span>
+  </a>
+</nav>
