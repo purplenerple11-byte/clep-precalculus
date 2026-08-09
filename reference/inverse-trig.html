@@ -39,6 +39,32 @@
 </table>
 <p>Out of range? Compute the inner value, then find the in-range angle sharing it. Worked folds: <span class="math">sin⁻¹(sin 2π/3) = π/3</span>, <span class="math">cos⁻¹(cos 5π/4) = 3π/4</span>, <span class="math">tan⁻¹(tan 5π/6) = −π/6</span>.</p>
 
+<div class="callout">
+  <span class="callout-label">Evaluating is not solving</span>
+  <span class="math">sin θ = −1/2</span> has <strong>infinitely many</strong> answers; <span class="math">sin⁻¹(−1/2)</span> has exactly <strong>one</strong>. A distractor like 7π/6 genuinely satisfies the equation and is still the wrong answer, because arcsin is only permitted to return the angle inside its window. Read which of the two questions is being asked before you start.
+</div>
+
+<h3>Fold shortcuts</h3>
+<p>Once the reasoning is solid, these save time. Derive them if you doubt them — they are just "reflect into the window".</p>
+<table>
+  <tr><th>Fold</th><th>Where θ sits</th><th>Answer</th></tr>
+  <tr><td class="math">sin⁻¹(sin θ)</td><td class="math">θ ∈ [π/2, 3π/2]</td><td class="math">π − θ</td></tr>
+  <tr><td class="math">cos⁻¹(cos θ)</td><td class="math">θ ∈ [π, 2π]</td><td class="math">2π − θ</td></tr>
+  <tr><td class="math">cos⁻¹(cos θ)</td><td class="math">θ ∈ [−π, 0]</td><td class="math">−θ</td></tr>
+  <tr><td class="math">tan⁻¹(tan θ)</td><td>anywhere legal</td><td class="math">θ − kπ, into (−π/2, π/2)</td></tr>
+</table>
+<p>Sine and cosine fold by <em>reflection</em>, so the shortcut flips θ around. Tangent folds by <em>translation</em>, so it only ever slides by whole multiples of π — which is why <span class="math">tan⁻¹(tan 5π/6) = 5π/6 − π = −π/6</span>.</p>
+
+<h2>Common wrong turns</h2>
+<table>
+  <tr><th>The slip</th><th>The correction</th></tr>
+  <tr><td>Assuming the inverse cancels the function</td><td>Only when θ already sits in the principal range</td></tr>
+  <tr><td>Answering with the intermediate value</td><td><span class="math">√3/2</span> is a ratio; arcsin returns an <em>angle</em>. Watch the types</td></tr>
+  <tr><td>Giving a positive angle for arcsin of a negative</td><td>Sign of the output must match the sign of the input</td></tr>
+  <tr><td>Treating arccos like arcsin</td><td>Negative inputs go to QII (<span class="math">π − ref</span>), never to a negative angle</td></tr>
+  <tr><td>Offering any solution of the equation</td><td>Only the in-window one counts — see "Evaluating is not solving"</td></tr>
+</table>
+
 <h2>Triangle-from-ratio recipe</h2>
 <ol>
   <li>The given ratio names two sides — <strong>write them on a right triangle</strong> (sin: opp/hyp · cos: adj/hyp · tan: opp/adj).</li>
